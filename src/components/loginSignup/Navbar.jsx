@@ -48,7 +48,7 @@ const Navbar = ({ name }) => {
         </li>
 
         <li>
-          <Link to="/FarmerData1">Registrations</Link>
+          <Link to="/ContactUs">Contact Us</Link>
         </li>
         <li className="user" onClick={() => setPopup(!pupup)}>
           <FaUserCircle />
