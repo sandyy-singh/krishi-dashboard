@@ -7,7 +7,6 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { apppp } from "./firebase";
 
-
 const auth = getAuth(apppp);
 const firestore = getFirestore(apppp);
 
@@ -32,7 +31,6 @@ const SignUp = () => {
     const mobilePattern = /^[0-9]{10}$/; // Change this pattern according to your needs
     setIsValidMobile(mobilePattern.test(inputMobile));
   };
-
 
   const handleEmailChange = (e) => {
     const inputEmail = e.target.value;
@@ -65,17 +63,7 @@ const SignUp = () => {
         password,
         location,
         phone
-      );
-      await addDoc(collection(firestore, "UsersData"), {
-        name,
-        location,
-        phone,
-        email,
-        state,
-        district,
-        tehsil,
-        village,
-      }).then((response) => alert("your account is created"));
+      ).then((response) => alert("your account is created"));
     } catch (error) {
       if (error) {
         console.log(error);
@@ -102,7 +90,6 @@ const SignUp = () => {
     setEmail("");
     setPassword("");
     navigate("/Login");
-
   };
 
   return (

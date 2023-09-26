@@ -1,35 +1,21 @@
 
 import { initializeApp } from "firebase/app";
 
+
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBlqUajoQSPMEaO2Z2rCAnfNYlcaLS-N_A",
-  authDomain: "dcdataapp.firebaseapp.com",
-  databaseURL: "https://dcdataapp-default-rtdb.firebaseio.com",
-  projectId: "dcdataapp",
-  storageBucket: "dcdataapp.appspot.com",
-  messagingSenderId: "1086430953312",
-  appId: "1:1086430953312:web:d32da2e5cef188baeb2805",
-  measurementId: "G-74GRFTPCD7"
+  apiKey: "AIzaSyB8_XCX5IMNd1-68WU15vLJM9jtof6hTBQ",
+  authDomain: "sigfox-4a13d.firebaseapp.com",
+  databaseURL: "https://sigfox-4a13d-default-rtdb.firebaseio.com",
+  projectId: "sigfox-4a13d",
+  storageBucket: "sigfox-4a13d.appspot.com",
+  messagingSenderId: "229436834072",
+  appId: "1:229436834072:web:2eae01d18226d97bc0de6d",
+  measurementId: "G-3JQP3HNZXC"
 };
 
 
-// // const firebaseConfig = {
-// //   apiKey: "AIzaSyBKTIsNhXsm2nHT_ItCYuycBEewO5NcHxY",
-// //   authDomain: "dcdataapp-7e793.firebaseapp.com",
-// //   projectId: "dcdataapp-7e793",
-// //   storageBucket: "dcdataapp-7e793.appspot.com",
-// //   messagingSenderId: "269300251615",
-// //   appId: "1:269300251615:web:664a9e7403b87bda92a26a"
-// // };
-
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCanh_wZbCptTaxD8ATAfWRtvFSuWq-Igc",
-//   authDomain: "delhidata-d9b64.firebaseapp.com",
-//   projectId: "delhidata-d9b64",
-//   storageBucket: "delhidata-d9b64.appspot.com",
-//   messagingSenderId: "505418333049",
-//   appId: "1:505418333049:web:544d03f0a280a5dcfc0da8"
-// };
 
 
 // Initialize Firebase
