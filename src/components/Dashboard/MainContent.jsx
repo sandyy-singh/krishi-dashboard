@@ -9,7 +9,7 @@ export default function MainContent() {
 
 
     return (
-        <div className="maincontent">
+        <div className="container-fluid containercc">
             <Location />
             <RecentUpdates />
             <Weathers />

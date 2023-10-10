@@ -51,20 +51,6 @@
   text-align: center;
 }
 
-/* .popup{
-  height: 100vh;
-  width: 100%;
-  background-color: rgb(101, 93, 93);
-  z-index: 1;
-  opacity: 0.5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  top: 0px;
-  left: 0px;
-
-} */
 
 .SignUpp{
   height: 100vh;
@@ -74,54 +60,35 @@
   height: 100vh;
 }
 
-
-
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  /* background: #FDFBFB; */
-/* }
-
-body::-webkit-scrollbar {
-  display: none;
+.logo{
+  border-radius: 50%;
 }
-
-.content {
-  display: flexbox;
+.Dashboard{
+  overflow: auto;
 }
-
-.sideNav {
-  height: 100vh;
-}
-
-.maincontent {
-  width: 100%;
-  background: #FDFBFB;
-} */
-
-
-/* .Dashboard {
-  display: flex;
-  flex-direction: row;
-}
-
-
-
-.analytics {
-  display: flex;
-  flex-direction: row;
-  background-color: blueviolet;
+.pupupLogOut{
+  position: absolute;
+  right: 10px;
+  top: 80px;
   width: auto;
-  height: 25%;
-  justify-content: space-around;
 }
-
-.elements {
-  background-color: black;
-  height: 90%;
-  width: 20%;
-  margin-top: 10px;
-  border-radius: 1rem;
-} */ 
+.parent{
+  height: 100vh !important;
+  overflow: hidden !important;
+  
+}
+.containerClass{
+  height: 100vh !important;
+  overflow: scroll !important;
+  margin-bottom: 25px !important;
+  min-width: 100% !important;
+}
+.tableData{
+  max-height: 400px;
+  overflow: auto;
+}
+.containercc{
+padding: 0 !important;
+margin: 0 !important;
+  min-width: 100% !important;
+}

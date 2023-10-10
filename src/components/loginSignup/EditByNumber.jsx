@@ -61,7 +61,7 @@ const EditByNumber = () => {
 
     getDataByNumber();
 
-  }, [accessDataForEdit, setAccessDataForEdit,farmerNumber ]);
+  }, [ ]);
 
 
 const accessData =()=>{
