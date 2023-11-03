@@ -122,7 +122,7 @@ const Location = () => {
               </div>
             </div>
             <div className="co-12 d-flex justify-content-center align-items-center">
-              <Bar data={data1} options={option1} />
+              <Bar data={data2} options={option2} />
             </div>
           </div>
         </div>

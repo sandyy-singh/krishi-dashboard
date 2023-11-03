@@ -31,116 +31,148 @@ export default function RecentUpdates() {
 
   return (
     <div className="container-fluid  mt-3 ">
-      <div className="row">
+      <div className="row d-flex justify-content-center align-items-center">
         <div className="col-12 ">
           <h1>Recent Updates</h1>
         </div>
-        <div className="col-12 ">
+        <div className="col-11">
           <div className="row d-flex justify-content-center align-items-center">
-            <div className="col-sm-5 col-md-3 d-flex justify-content-center align-items-center cards ">
-              <div className="row  ">
-                <div className="col-6 d-flex justify-content-center align-items-center ">
-                  <img src={battery} alt=""></img>
-                </div>
-                <div className="col-6 d-flex flex-column justify-content-center align-items-center">
-                  <h1 className="">{lastUpdate.BT}</h1>
+            <div className="col-sm-5 col-md-3 mt-sm-4 mt-3 ">
+              <div className="row   d-flex flex-column justify-content-center align-items-center">
+                <div className="cards col-11">
+                  <div className="row   d-flex  justify-content-center align-items-center">
+                    <div className="col-6 d-flex justify-content-center align-items-center ">
+                      <img src={battery} alt=""></img>
+                    </div>
+                    <div className="col-6 d-flex flex-column justify-content-center align-items-center">
+                      <h1 className="">{lastUpdate.BT}</h1>
 
-                  <h6 className="">Battery</h6>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-sm-5 col-md-3 d-flex justify-content-center align-items-center cards">
-              <div className="row  ">
-                <div className="col-6 d-flex justify-content-center align-items-center ">
-                  <img src={temp} alt=""></img>
-                </div>
-                <div className="col-6 d-flex flex-column justify-content-center align-items-center">
-                  <h1 className="">{lastUpdate.T}</h1>
-
-                  <h6 className="">Amb. Temperature</h6>
-                </div>
-              </div>
-            </div>
-            
-
-            <div className="col-sm-5 col-md-3 d-flex justify-content-center align-items-center cards">
-              <div className="row  ">
-                <div className="col-6 d-flex justify-content-center align-items-center ">
-                  <img src={humidity} alt=""></img>
-                </div>
-                <div className="col-6 d-flex flex-column justify-content-center align-items-center">
-                  <h1 className="">{lastUpdate.H}</h1>
-
-                  <h6 className="">Amb. Humidity</h6>
+                      <h6 className="">Battery</h6>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="col-sm-5 col-md-3 d-flex justify-content-center align-items-center cards">
-              <div className="row  ">
-                <div className="col-6 d-flex justify-content-center align-items-center ">
-                  <img src={soilMoisture} alt=""></img>
-                </div>
-                <div className="col-6 d-flex flex-column justify-content-center align-items-center">
-                  <h1 className="">{lastUpdate.SM}</h1>
-
-                  <h6 className="">Soil Moisture</h6>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-sm-5 col-md-3 d-flex justify-content-center align-items-center cards">
-              <div className="row  ">
-                <div className="col-6 d-flex justify-content-center align-items-center ">
-                  <img src={soilTemp} alt=""></img>
-                </div>
-                <div className="col-6 d-flex flex-column justify-content-center align-items-center">
-                  <h1 className="">{lastUpdate.ST}</h1>
-
-                  <h6 className="">Soil Temperature</h6>
+            <div className="col-sm-5 col-md-3 mt-sm-4 mt-3">
+              <div className="row   d-flex flex-column justify-content-center align-items-center">
+                <div className="cards col-11">
+                  <div className="row   d-flex  justify-content-center align-items-center">
+                    <div className="col-6 d-flex justify-content-center align-items-center ">
+                      <img src={temp} alt=""></img>
+                    </div>
+                    <div className="col-6 d-flex flex-column justify-content-center align-items-center">
+                      <h1 className="">{lastUpdate.T}</h1>
+                      <h6 className="">Amb. Temperature</h6>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="col-sm-5 col-md-3 d-flex justify-content-center align-items-center cards">
-              <div className="row  ">
-                <div className="col-6 d-flex justify-content-center align-items-center ">
-                  <img src={lightIn} alt=""></img>
-                </div>
-                <div className="col-6 d-flex flex-column justify-content-center align-items-center">
-                  <h1 className="">{lastUpdate.LI}</h1>
-
-                  <h6 className="">Light Intensity</h6>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-sm-5 col-md-3 d-flex justify-content-center align-items-center cards">
-              <div className="row  ">
-                <div className="col-6 d-flex justify-content-center align-items-center ">
-                  <img src={ph} alt=""></img>
-                </div>
-                <div className="col-6 d-flex flex-column justify-content-center align-items-center">
-                  <h1 className="">{lastUpdate.PH}</h1>
-
-                  <h6 className="">pH</h6>
+            <div className="col-sm-5 col-md-3 mt-sm-4 mt-3">
+              <div className="row   d-flex flex-column justify-content-center align-items-center">
+                <div className="cards col-11">
+                  <div className="row d-flex  justify-content-center align-items-center ">
+                    <div className="col-6 d-flex justify-content-center align-items-center ">
+                      <img src={humidity} alt=""></img>
+                    </div>
+                    <div className="col-6 d-flex flex-column justify-content-center align-items-center">
+                      <h1 className="">{lastUpdate.H}</h1>
+                      <h6 className="">Amb. Humidity</h6>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="col-sm-5 col-md-3 d-flex justify-content-center align-items-center cards">
-              <div className="row  ">
-                <div className="col-6 d-flex justify-content-center align-items-center ">
+            <div className="col-sm-5 col-md-3 mt-sm-4 mt-3">
+              <div className="row   d-flex flex-column justify-content-center align-items-center">
+                <div className="cards col-11">
+                  <div className="row  d-flex  justify-content-center align-items-center">
+                    <div className="col-6 d-flex justify-content-center align-items-center ">
+                      <img src={soilMoisture} alt=""></img>
+                    </div>
+                    <div className="col-6 d-flex flex-column justify-content-center align-items-center">
+                      <h1 className="">{lastUpdate.SM}</h1>
+                      <h6 className="">Soil Moisture</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-sm-5 col-md-3 mt-sm-4 mt-3">
+              <div className="row   d-flex flex-column justify-content-center align-items-center">
+                <div className="cards col-11">
+                  <div className="row d-flex  justify-content-center align-items-center ">
+                    <div className="col-6 d-flex justify-content-center align-items-center ">
+                      <img  src={soilTemp} alt=""></img>
+                    </div>
+                    <div className="col-6 d-flex flex-column justify-content-center align-items-center">
+                      <h1 className="">{lastUpdate.ST}</h1>
+
+                      <h6 className="">Soil Temperature</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-sm-5 col-md-3 mt-sm-4 mt-3 ">
+              <div className="row   d-flex flex-column justify-content-center align-items-center">
+                <div className="cards col-11">
+                  <div className="row  d-flex  justify-content-center align-items-center">
+                    <div className="col-6 d-flex justify-content-center align-items-center ">
+                      <img src={lightIn} alt=""></img>
+                    </div>
+                    <div className="col-6 d-flex flex-column justify-content-center align-items-center">
+                      <h1 className="">{lastUpdate.LI}</h1>
+
+                      <h6 className="">Light Intensity</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-sm-5 col-md-3 mt-sm-4 mt-3">
+              <div className="row   d-flex flex-column justify-content-center align-items-center">
+                <div className="cards col-11">
+                  <div className="row  d-flex  justify-content-center align-items-center">
+                    <div className="col-6 d-flex justify-content-center align-items-center ">
+                      <img src={ph} alt=""></img>
+                    </div>
+                    <div className="col-6 d-flex flex-column justify-content-center align-items-center ">
+                      <h1 className="text-center">{lastUpdate.PH}</h1>
+
+                      <h6 className="text-center">pH</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-sm-5 col-md-3 mt-sm-4 mt-3">
+            <div className="row   d-flex flex-column justify-content-center align-items-center">
+              <div className="cards col-11">
+                <div className="row  d-flex  justify-content-center align-items-center">
+                  <div className="col-6 d-flex justify-content-center align-items-center ">
                   <img src={ec} alt=""></img>
-                </div>
-                <div className="col-6 d-flex flex-column justify-content-center align-items-center">
-                  <h1 className="">{lastUpdate.EC}</h1>
+                  </div>
+                  <div className="col-6 d-flex flex-column justify-content-center align-items-center">
+                      <h1 className="text-center">{lastUpdate.EC}</h1>
 
-                  <h6 className="">EC</h6>
+                      <h6 className="text-center">EC</h6>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+
+
+
+
           </div>
         </div>
       </div>
