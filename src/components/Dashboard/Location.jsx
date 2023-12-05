@@ -97,9 +97,15 @@ const Location = () => {
             </div>
             <div className="col-7 col-sm-5 col-md-4">
               <div className="row">
-                <div className="col-4"><button className="btn btn-secondary btn-sm">week</button></div>
-                <div className="col-4"><button className="btn btn-secondary btn-sm">month</button></div>
-                <div className="col-4"><button className="btn btn-secondary btn-sm">year</button></div>
+                <div className="col-4">
+                  <button className="btn btn-secondary btn-sm">week</button>
+                </div>
+                <div className="col-4">
+                  <button className="btn btn-secondary btn-sm">month</button>
+                </div>
+                <div className="col-4">
+                  <button className="btn btn-secondary btn-sm">year</button>
+                </div>
               </div>
             </div>
             <div className="co-12 d-flex justify-content-center align-items-center">
@@ -108,7 +114,6 @@ const Location = () => {
           </div>
         </div>
 
-
         <div className="col-md-6 mt-4 mt-sm-5 ">
           <div className="row">
             <div className="col-5 col-sm-6">
@@ -116,9 +121,15 @@ const Location = () => {
             </div>
             <div className="col-7  col-sm-4">
               <div className="row">
-                <div className="col-4"><button className="btn btn-secondary btn-sm">week</button></div>
-                <div className="col-4"><button className="btn btn-secondary btn-sm">month</button></div>
-                <div className="col-4"><button className="btn btn-secondary btn-sm">year</button></div>
+                <div className="col-4">
+                  <button className="btn btn-secondary btn-sm">week</button>
+                </div>
+                <div className="col-4">
+                  <button className="btn btn-secondary btn-sm">month</button>
+                </div>
+                <div className="col-4">
+                  <button className="btn btn-secondary btn-sm">year</button>
+                </div>
               </div>
             </div>
             <div className="co-12 d-flex justify-content-center align-items-center">
@@ -126,7 +137,6 @@ const Location = () => {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );

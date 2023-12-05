@@ -17,17 +17,18 @@ export default function RecentUpdates() {
   const [lastUpdate, setLastUpdate] = useState({});
   const database = getDatabase(apppp);
   useEffect(() => {
-    get(child(ref(database), "WiFi_Devices/AE01/Last Update"))
+    get(child(ref(database), "WiFi_Devices/AE02/Last Update"))
       .then((snapshot) => {
         setLastUpdate(snapshot.val());
-        console.log(snapshot.val());
+        // console.log(snapshot.val());
       })
       .catch((error) => {
         console.error(error);
       });
-    console.log(database);
-    console.log(apppp);
+    // console.log(database);
+    // console.log(apppp);
   }, []);
+  console.log("last", lastUpdate);
 
   return (
     <div className="container-fluid  mt-3 ">
@@ -107,7 +108,7 @@ export default function RecentUpdates() {
                 <div className="cards col-11">
                   <div className="row d-flex  justify-content-center align-items-center ">
                     <div className="col-6 d-flex justify-content-center align-items-center ">
-                      <img  src={soilTemp} alt=""></img>
+                      <img src={soilTemp} alt=""></img>
                     </div>
                     <div className="col-6 d-flex flex-column justify-content-center align-items-center">
                       <h1 className="">{lastUpdate.ST}</h1>
@@ -154,25 +155,21 @@ export default function RecentUpdates() {
             </div>
 
             <div className="col-sm-5 col-md-3 mt-sm-4 mt-3">
-            <div className="row   d-flex flex-column justify-content-center align-items-center">
-              <div className="cards col-11">
-                <div className="row  d-flex  justify-content-center align-items-center">
-                  <div className="col-6 d-flex justify-content-center align-items-center ">
-                  <img src={ec} alt=""></img>
-                  </div>
-                  <div className="col-6 d-flex flex-column justify-content-center align-items-center">
+              <div className="row   d-flex flex-column justify-content-center align-items-center">
+                <div className="cards col-11">
+                  <div className="row  d-flex  justify-content-center align-items-center">
+                    <div className="col-6 d-flex justify-content-center align-items-center ">
+                      <img src={ec} alt=""></img>
+                    </div>
+                    <div className="col-6 d-flex flex-column justify-content-center align-items-center">
                       <h1 className="text-center">{lastUpdate.EC}</h1>
 
                       <h6 className="text-center">EC</h6>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-
-
-
-
           </div>
         </div>
       </div>
