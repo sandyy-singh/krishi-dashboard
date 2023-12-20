@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Styles/Location.scss";
 import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
-
+import { useUserContext } from "../loginSignup/UserProvider";
 import { CategoryScale } from "chart.js";
 Chart.register(CategoryScale);
 
 const Location = () => {
+  const { array, devices, setArray, lastUpdate, setLastUpdate } =
+    useUserContext();
+  // console.log(array);
   const data1 = {
     labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"],
     datasets: [
@@ -78,7 +81,17 @@ const Location = () => {
       ],
     },
   };
-
+  useEffect(() => {
+    const getDevices = async () => {
+      await setArray(Object.keys(devices));
+    };
+    getDevices();
+  }, [devices]);
+  const getDeviceDetails = (deviceName) => {
+    if (deviceName in devices) {
+      setLastUpdate(devices[deviceName][Object.keys(devices[deviceName])[0]]);
+    }
+  };
   return (
     <div className="container-fluid">
       <div className="row">
@@ -86,8 +99,46 @@ const Location = () => {
           <h1 className="">Device Updates</h1>
         </div>
 
-        <div className="col-6">
-          <button className="btn btn-secondary mt-4">Divices</button>
+        <div className="col-6 mt-4">
+          <div className="dropdown">
+            <a
+              className="btn btn-secondary dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Devices
+            </a>
+
+            <ul className="dropdown-menu">
+              {array.map((value, i) => (
+                // {
+                //   console.log(value);
+                // }
+                <li key={i}>
+                  <a
+                    className="dropdown-item"
+                    href="#"
+                    onClick={() => getDeviceDetails(value)}
+                  >
+                    {value}
+                  </a>
+                </li>
+              ))}
+
+              {/* <li>
+                <a className="dropdown-item" href="#">
+                  AE02
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  AE03
+                </a>
+              </li> */}
+            </ul>
+          </div>
         </div>
 
         <div className="col-md-6 mt-4 mt-sm-5 ">

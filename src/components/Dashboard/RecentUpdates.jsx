@@ -12,23 +12,28 @@ import soilTemp from "../../Images/image 5.png";
 import lightIn from "../../Images/image 2.png";
 import ph from "../../Images/image 3.png";
 import ec from "../../Images/image 7.png";
-
+import { useUserContext } from "../loginSignup/UserProvider";
+import { compileString } from "sass";
 export default function RecentUpdates() {
-  const [lastUpdate, setLastUpdate] = useState({});
-  const database = getDatabase(apppp);
-  useEffect(() => {
-    get(child(ref(database), "WiFi_Devices/AE02/Last Update"))
-      .then((snapshot) => {
-        setLastUpdate(snapshot.val());
-        // console.log(snapshot.val());
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    // console.log(database);
-    // console.log(apppp);
-  }, []);
-  console.log("last", lastUpdate);
+  const { lastUpdate } = useUserContext();
+  // const { devices, setDevices } = useUserContext();
+  // console.log(devices);
+  // console.log(array);
+  // const database = getDatabase(apppp);
+  // useEffect(() => {
+  //   get(child(ref(database), "WiFi_Devices/"))
+  //     .then((snapshot) => {
+  //       // setLastUpdate(snapshot.val());
+  //       setDevices(snapshot.val());
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, [database]);
+  // console.log("devices", devices);
+  // const obj = [];
+  // const obj = Object.keys(devices);
+  // console.log(obj);
 
   return (
     <div className="container-fluid  mt-3 ">
