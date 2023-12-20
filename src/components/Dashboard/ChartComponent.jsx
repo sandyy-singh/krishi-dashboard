@@ -1,7 +1,7 @@
 import React from 'react'
 import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
-// import DropDownMenu from "./DropDown"
+import DropDownMenu from "./DropDown"
 import "./ChartComponent.scss"
 
 import { CategoryScale } from "chart.js";
