@@ -49,20 +49,23 @@ export default function Weathers() {
   return (
     <div className="container-fluid mb-4">
       <div className="row d-flex justify-content-center align-items-center">
-        <div className="col-sm-8  ">
-          <div className="row bg-light my-4 py-3 d-flex">
-            <div className="col-6 ">
-              <h2 className="text-dark text-start"> History Logs</h2>
-            </div>
-            <div className="col-6  text-end">
-              <button className="table-button">
-                <img src={button2} alt=""></img>
-              </button>
-              <button className="table-button">
-                <img src={button1} alt=""></img>
-              </button>
-            </div>
-          </div>
+        <div className="col-sm-8 table-heading ">
+         <div className="table-heading">
+         <div className="row bg-light my-1 py-3 d-flex">
+         <div className="col-6 ">
+           <h2 className="text-dark text-start"> History Logs</h2>
+         </div>
+         <div className="col-6  text-end">
+           <button className="table-button">
+             <img src={button2} alt=""></img>
+           </button>
+           <button className="table-button">
+             <img src={button1} alt=""></img>
+           </button>
+         </div>
+       </div>
+         </div>
+ 
           <div className="tableData">
             <table class="table">
               <thead class="thead-light">
