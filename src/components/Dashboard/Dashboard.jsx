@@ -12,7 +12,7 @@ export default function Dashboard() {
     }
   }, []);
   return (
-    <div className="container-fluid containerClass">
+    <div className="container-fluid containerClass overflow-hidden overflow-scroll ">
       <div className=" row d-flex justify-content-center align-items-center ">
         <MainContent />
       </div>

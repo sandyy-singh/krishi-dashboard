@@ -7,6 +7,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Location from "./components/Dashboard/Location";
 import FarmerData1 from "./components/loginSignup/FarmerData1";
 //
+import "./App.css";
 import EnterNumber from "./components/loginSignup/EnterNumber";
 import Navbar from "./components/loginSignup/Navbar";
 import Sidebar from "./components/Dashboard/Sidebar";
@@ -56,7 +57,7 @@ function App() {
               <Route path="/ResetPassword" element={<ResetPassword />}></Route>
               <Route path="/Contact" element={<Contact />}></Route>
               <Route path="/FarmerData1" element={<FarmerData1 />}></Route>
-              <Route path="/Location" element={<Location />}></Route>     
+              <Route path="/Location" element={<Location />}></Route>
               <Route path="/EnterNumber" element={<EnterNumber />}></Route>
             </Routes>
           </div>
