@@ -13,7 +13,9 @@ export const UserProvider = ({ children }) => {
   const [accessDataForEdit, setAccessDataForEdit] = useState({});
   const [devices, setDevices] = useState([]);
   const [array, setArray] = useState([]);
+  // const [dateAndTime, setDateAndTime] = useState();
   // const [lastUpdate, setLastUpdate] = useState([]);
+  // console.log(array);
   const [lastUpdate, setLastUpdate] = useState({
     BT: "62",
     DT: "1686820318",
@@ -38,7 +40,7 @@ export const UserProvider = ({ children }) => {
         console.error(error);
       });
   }, [database]);
-  console.log(devices);
+  // console.log(devices);
   // console.log(array);
 
   // console.log(devices["AE01"][Object.keys(devices["AEO1"])[0]]);
