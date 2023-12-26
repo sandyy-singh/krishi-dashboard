@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./Styles/Location.scss";
 import Chart from "chart.js/auto";
-import { Bar } from "react-chartjs-2";
+import { Bar,Line } from "react-chartjs-2";
 import { useUserContext } from "../loginSignup/UserProvider";
 import { CategoryScale } from "chart.js";
 Chart.register(CategoryScale);
@@ -138,11 +138,11 @@ const Location = () => {
                 </a>
               </li> */}
             </ul>
-          </div>
+          </div>  
         </div>
 
-        <div className="col-md-6 mt-4 mt-sm-5 ">
-          <div className="row">
+        <div className="col-md-6 mt-4 mt-sm-5  ">
+          <div className="row cards1  pt-2">
             <div className="col-5 col-sm-6">
               <h2 className="">Overview</h2>
             </div>
@@ -159,15 +159,15 @@ const Location = () => {
                 </div>
               </div>
             </div>
-            <div className="co-12 d-flex justify-content-center align-items-center">
+            <div className="co-10 d-flex justify-content-center align-items-center w-80">
               <Bar data={data1} options={option1} />
             </div>
           </div>
         </div>
 
-        <div className="col-md-6 mt-4 mt-sm-5 ">
-          <div className="row">
-            <div className="col-5 col-sm-6">
+        <div className="col-md-6 mt-4 mt-sm-5  ">
+          <div className="row cards1 w-80  pt-2">
+            <div className="col-5 col-sm-6 ">
               <h2 className="">Overview</h2>
             </div>
             <div className="col-7  col-sm-4">
@@ -183,7 +183,7 @@ const Location = () => {
                 </div>
               </div>
             </div>
-            <div className="co-12 d-flex justify-content-center align-items-center">
+            <div className="co-10 d-flex justify-content-center align-items-center chart">
               <Bar data={data2} options={option2} />
             </div>
           </div>
