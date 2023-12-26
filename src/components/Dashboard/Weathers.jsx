@@ -92,7 +92,7 @@ export default function Weathers() {
             </table>
           </div>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-4 d-flex justify-content-center align-items-center">
           <Weatherpart1 />
         </div>
       </div>

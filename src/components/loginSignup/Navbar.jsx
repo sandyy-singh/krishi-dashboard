@@ -4,9 +4,9 @@ import { AiOutlineHome } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { apppp } from "./firebase";
-import { BiArrowToLeft } from "react-icons/bi";
+
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 const auth = getAuth(apppp);
@@ -14,7 +14,7 @@ const auth = getAuth(apppp);
 const Navbar = ({ toggleFun }) => {
   const [pupup, setPopup] = useState(false);
   const [userName, setUuserName] = useState();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -24,84 +24,60 @@ const Navbar = ({ toggleFun }) => {
       }
     });
   }, []);
-  const contact = () => {
-    navigate("/Contact");
-  };
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("uid");
-    window.location.reload();
-    navigate("/login");
-  };
+
+
+
 
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-success  bg-success p-2" >
-        
-          <Link className=" navbar-brand text-light d-block " onClick={toggleFun}>
-            <BiArrowToLeft />KRISHI
-          </Link>
-
-
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+    <div className="cards1">
+      <nav className="navbar navbar-expand-lg navbar-light w-100 px-5">
+        <div className="container-fluid px-2 ">
+          <Link className="navbar-brand" href="#"><b>KRISHI</b></Link>
+          <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+          <div className="collapse navbar-collapse d-flex" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link
                   to="/"
-                  className="nav-link text-light"
+                  className="nav-link text-dark"
                   aria-current="page"
                 >
-                  <AiOutlineHome />
+                  Home
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link
                   to="/ContactUs"
-                  className="nav-link text-light"
+                  className="nav-link text-dark"
                   aria-current="page"
                 >
                   ContactUs
                 </Link>
               </li>
 
-              <li className="nav-item">
-                <Link
-
-                  className="nav-link text-light"
-                  aria-current="page"
-                  onClick={() => setPopup(!pupup)}
-                >
-                  <FaUserCircle />
-                </Link>
-              </li>
             </ul>
+            <form className="d-flex">
+
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0  mr-4">
+                <li className="nav-item dropdown  mr-4">
+                  <Link className="nav-link dropdown-toggle  mr-4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <b>{userName}</b>  <FaUserCircle />
+                  </Link>
+                  <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li className=" dropdown-item fonts"><button className="btn btn-danger  btn-sm ">logout</button></li>
+
+                  </ul>
+                </li>
+              </ul>
+            </form>
           </div>
-        
-      </nav>
-      {pupup ? (
-        <div className="userPopup bg-dark p-2">
-          <p className="text-light">{userName}</p>
-          <button className="btn btn-success m-1" onClick={contact}>
-            contact
-          </button>
-          <button className="btn btn-danger" onClick={logout}>
-            logout
-          </button>
         </div>
-      ) : null}
+      </nav>
+
     </div>
   );
 };

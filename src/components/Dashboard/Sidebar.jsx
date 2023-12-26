@@ -1,9 +1,18 @@
 import React from "react";
 import krishi_logo from "../../Images/krishi_logo.jpg";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("uid");
+    window.location.reload();
+    navigate("/login");
+  };
+
   return (
-    <div className="d-flex justify-content-between flex-column bg-success text-light p-3 vh-100 position-sticky ">
+    <div className="d-flex justify-content-between flex-column text-dark p-3 vh-100 position-sticky cardsiside ">
       <div className="flex-column">
         <NavLink
           className="d-flex justify-content-center align-item-center  "
@@ -11,30 +20,30 @@ const Sidebar = () => {
         >
           <img src={krishi_logo} alt="krishi_logo" width={"80px"} />
         </NavLink>
-        <hr className="text-light" />
+        <hr text-light />
         <ul className="nav nav-pills  flex-column  ">
           <li className="nav-item ">
-            <NavLink className="nav-link text-light " to="/">
+            <NavLink className="nav-link text-dark " to="/">
               DashBoard
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link text-light  " to="/Conta">
+            <NavLink className="nav-link text-dark  " to="/Conta">
               CropAdvisory
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link text-light " to="/Location">
+            <NavLink className="nav-link text-dark " to="/Location">
               CropSection
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link text-light " to="/Contact">
+            <NavLink className="nav-link text-dark " to="/Contact">
               Contact Us
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link text-light  " to="/Login">
+            <NavLink className="nav-link text-dark  " to="/Login">
               Login
             </NavLink>
           </li>
@@ -43,9 +52,9 @@ const Sidebar = () => {
       <div>
         <hr text-light />
         <div className="n">
-          <ul className="nav nav-pills ">
+          <ul className="nav  ">
             <li className="nav-item">
-              <NavLink className="nav-link text-light  " to="/yfg">
+              <NavLink className="nav-link text-dark  " onClick={logout}>
                 Logout
               </NavLink>
             </li>

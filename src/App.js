@@ -12,30 +12,43 @@ import Navbar from "./components/loginSignup/Navbar";
 import Sidebar from "./components/Dashboard/Sidebar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-
 function App() {
-  const [toggleNav, setToggleNav] = useState(false)
+  // const [toggleNav, setToggleNav] = useState(false);
 
-  function toggleFun() {
-    setToggleNav(!toggleNav);
-  }
+  // function toggleFun() {
+  //   setToggleNav(!toggleNav);
+  // }
   const [tokenNo, setTokenNo] = useState("");
   useEffect(() => {
     const tocken = localStorage.getItem("token");
     setTokenNo(tocken);
   }, []);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 767); // Adjust the width based on your mobile breakpoint
+    };
+
+    // Initial check and add event listener for window resize
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      // Remove the event listener when the component unmounts
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div>
       <BrowserRouter>
         <div className="d-flex  parent">
-          {tokenNo && (
-            <div className={toggleNav ? "d-none" : "w-auto"}>
-              <Sidebar />
-            </div>
-          )}
-          <div className="col rightSide vh-100" >
-            {tokenNo && <Navbar toggleFun={toggleFun} />}
+          {tokenNo && <div>{!isMobile && <Sidebar />}</div>}
+
+          <div className="col rightSide h-80">
+            {tokenNo && <Navbar />}
             <Routes>
               <Route path="/" element={<Dashboard />}></Route>
               <Route path="/login" element={<Login />}></Route>
@@ -43,7 +56,7 @@ function App() {
               <Route path="/ResetPassword" element={<ResetPassword />}></Route>
               <Route path="/Contact" element={<Contact />}></Route>
               <Route path="/FarmerData1" element={<FarmerData1 />}></Route>
-              <Route path="/Location" element={<Location />}></Route>
+              <Route path="/Location" element={<Location />}></Route>     
               <Route path="/EnterNumber" element={<EnterNumber />}></Route>
             </Routes>
           </div>
