@@ -10,8 +10,8 @@ export default function MainContent() {
 
     return (
         <div className="container-fluid ">
-            <Location />
             <RecentUpdates />
+            <Location />
             <Weathers />
         </div>
 
