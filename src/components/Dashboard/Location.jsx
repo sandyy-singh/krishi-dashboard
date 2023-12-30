@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./Styles/Location.scss";
 import Chart from "chart.js/auto";
-import { Bar,Line } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 import { useUserContext } from "../loginSignup/UserProvider";
 import { CategoryScale } from "chart.js";
 Chart.register(CategoryScale);
@@ -138,7 +138,7 @@ const Location = () => {
                 </a>
               </li> */}
             </ul>
-          </div>  
+          </div>
         </div>
 
         <div className="col-md-6 mt-4 mt-sm-5  ">
