@@ -41,7 +41,7 @@ export default function RecentUpdates() {
         <div className="col-12 ">
           <h1>Recent Updates</h1>
         </div>
-        <div className="col-11">
+        <div className="col-12">
           <div className="row d-flex justify-content-center align-items-center">
             <div className="col-sm-5 col-md-3 mt-sm-4 mt-3 ">
               <div className="row   d-flex flex-column justify-content-center align-items-center">
