@@ -14,10 +14,6 @@ import { useUserContext } from "../loginSignup/UserProvider";
 
 export default function Weathers() {
   const { devices, array } = useUserContext();
-  //   console.log(devices, array, lastUpdate);
-  //   array.map((item) =>
-  //     console.log(devices[item][Object.keys(devices[item])[0]].DT)
-  //   );
   function convertEpoch(value) {
     if (!value) {
       return "";
@@ -40,32 +36,32 @@ export default function Weathers() {
     });
   }
   //   console.log(convertEpoch(1686820318));
-  function timechanger(utcSeconds) {
-    var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
-    d.setUTCSeconds(utcSeconds);
-  }
+  // function timechanger(utcSeconds) {
+  //   var d = new Date(0);
+  //   d.setUTCSeconds(utcSeconds);
+  // }
   //   var utcSeconds = 1686820318;
 
   return (
     <div className="container-fluid mb-4">
       <div className="row d-flex justify-content-center align-items-center">
         <div className="col-sm-8 table-heading ">
-         <div className="table-heading">
-         <div className="row bg-light my-1 py-3 d-flex">
-         <div className="col-6 ">
-           <h2 className="text-dark text-start"> History Logs</h2>
-         </div>
-         <div className="col-6  text-end">
-           <button className="table-button">
-             <img src={button2} alt=""></img>
-           </button>
-           <button className="table-button">
-             <img src={button1} alt=""></img>
-           </button>
-         </div>
-       </div>
-         </div>
- 
+          <div className="table-heading">
+            <div className="row bg-light my-1 py-3 d-flex">
+              <div className="col-6 ">
+                <h2 className="text-dark text-start"> History Logs</h2>
+              </div>
+              <div className="col-6  text-end">
+                <button className="table-button">
+                  <img src={button2} alt=""></img>
+                </button>
+                <button className="table-button">
+                  <img src={button1} alt=""></img>
+                </button>
+              </div>
+            </div>
+          </div>
+
           <div className="tableData">
             <table class="table">
               <thead class="thead-light">

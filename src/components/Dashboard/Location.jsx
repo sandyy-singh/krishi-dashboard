@@ -81,25 +81,25 @@ const Location = () => {
       ],
     },
   };
-  useEffect(() => {
-    const getDevices = async () => {
-      await setArray(Object.keys(devices));
-    };
-    getDevices();
-  }, [devices]);
-  const getDeviceDetails = (deviceName) => {
-    if (deviceName in devices) {
-      setLastUpdate(devices[deviceName][Object.keys(devices[deviceName])[0]]);
-    }
-  };
+  // useEffect(() => {
+  //   const getDevices = async () => {
+  //     await setArray(Object.keys(devices));
+  //   };
+  //   getDevices();
+  // }, [devices]);
+  // const getDeviceDetails = (deviceName) => {
+  //   if (deviceName in devices) {
+  //     setLastUpdate(devices[deviceName][Object.keys(devices[deviceName])[0]]);
+  //   }
+  // };
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-6 mt-4">
+        <div className="col-12 mt-4">
           <h1 className="">Device Updates</h1>
         </div>
 
-        <div className="col-6 mt-4">
+        {/* <div className="col-6 mt-4">
           <div className="dropdown">
             <a
               className="btn btn-secondary dropdown-toggle"
@@ -110,12 +110,9 @@ const Location = () => {
             >
               Devices
             </a>
-
             <ul className="dropdown-menu">
               {array.map((value, i) => (
-                // {
-                //   console.log(value);
-                // }
+               
                 <li key={i}>
                   <a
                     className="dropdown-item"
@@ -126,20 +123,9 @@ const Location = () => {
                   </a>
                 </li>
               ))}
-
-              {/* <li>
-                <a className="dropdown-item" href="#">
-                  AE02
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  AE03
-                </a>
-              </li> */}
             </ul>
           </div>
-        </div>
+        </div> */}
 
         <div className="col-md-6 mt-4 mt-sm-5  ">
           <div className="row cards1  pt-2">
