@@ -4,7 +4,7 @@ import "./SignUp.scss";
 // import { AiOutlineUser } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 import { apppp } from "./firebase";
 
 const auth = getAuth(apppp);
@@ -22,7 +22,6 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [isValidMobile, setIsValidMobile] = useState(true);
   const [isValidEmail, setIsValidEmail] = useState(true);
-
   const navigate = useNavigate();
 
   const handleMobileChange = (e) => {
@@ -55,7 +54,6 @@ const SignUp = () => {
 
       return;
     }
-
     try {
       await createUserWithEmailAndPassword(
         auth,

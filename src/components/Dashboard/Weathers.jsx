@@ -49,7 +49,7 @@ export default function Weathers() {
   return (
     <div className="container-fluid mb-4">
       <div className="row d-flex justify-content-center align-items-center">
-        <div className="col-sm-8 table-heading ">
+        <div className="col-lg-8 table-heading ">
          <div className="table-heading">
          <div className="row bg-light my-1 py-3 d-flex">
          <div className="col-6 ">
@@ -95,7 +95,7 @@ export default function Weathers() {
             </table>
           </div>
         </div>
-        <div className="col-sm-4 d-flex justify-content-center align-items-center">
+        <div className="col-lg-4 d-flex justify-content-center align-items-center">
           <Weatherpart1 />
         </div>
       </div>

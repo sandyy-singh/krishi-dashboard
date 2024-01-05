@@ -80,7 +80,7 @@ const Location = () => {
         },
       ],
     },
-  };
+  };    
   useEffect(() => {
     const getDevices = async () => {
       await setArray(Object.keys(devices));

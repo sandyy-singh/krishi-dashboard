@@ -43,35 +43,35 @@
 
 
 
-// .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-//     color: var(--bs-nav-pills-link-active-color);
-//     background-color: var(--bs-nav-pills-link-active-bg);
-// }
-// .nav-pills .nav-link {
-//     border-radius: var(--bs-nav-pills-border-radius);
-// }
-// .text-dark {
-//     --bs-text-opacity: 1;
-//     color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity))!important;
-// }
-// .nav-link {
-//     display: block;
-//     padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
-//     font-size: var(--bs-nav-link-font-size);
-//     font-weight: var(--bs-nav-link-font-weight);
-//     color: var(--bs-nav-link-color);
-//     text-decoration: none;
-//     background: 0 0;
-//     border: 0;
-//     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
-// }
-// a {
-//     color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
-//     text-decoration: underline;
-// }
-// *, ::after, ::before {
-//     box-sizing: border-box;
-// }
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: var(--bs-nav-pills-link-active-color);
+    background-color: var(--bs-nav-pills-link-active-bg);
+}
+.nav-pills .nav-link {
+    border-radius: var(--bs-nav-pills-border-radius);
+}
+.text-dark {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity))!important;
+}
+.nav-link {
+    display: block;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+    color: var(--bs-nav-link-color);
+    text-decoration: none;
+    background: 0 0;
+    border: 0;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+a {
+    color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
+    text-decoration: underline;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
 * {
     padding: 0px;
     margin: 0px;
@@ -98,5 +98,9 @@ user agent stylesheet
 li {
     text-align: -webkit-match-parent;
 }
-
+.nav-pills {
+    --bs-nav-pills-border-radius: var(--bs-border-radius);
+    --bs-nav-pills-link-active-color: #fff;
+    --bs-nav-pills-link-active-bg: #0dfd95;
+}
 
