@@ -6,7 +6,7 @@ import Contact from "./components/loginSignup/Contact";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Location from "./components/Dashboard/Location";
 import FarmerData1 from "./components/loginSignup/FarmerData1";
-//
+import AddDivices from "./components/Dashboard/AddDivices";
 import "./App.css";
 import EnterNumber from "./components/loginSignup/EnterNumber";
 import Navbar from "./components/loginSignup/Navbar";
@@ -14,20 +14,23 @@ import Sidebar from "./components/Dashboard/Sidebar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  // const [toggleNav, setToggleNav] = useState(false);
-
-  // function toggleFun() {
-  //   setToggleNav(!toggleNav);
-  // }
+  const [addDivicePopup, setaddDivicePopup] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [tokenNo, setTokenNo] = useState("");
+
+  
+  const AddDiviceFunc = () => {
+    setaddDivicePopup(true);
+  };
+  const AddDiviceClose = () => {
+    setaddDivicePopup(false);
+  };
+
+
   useEffect(() => {
     const tocken = localStorage.getItem("token");
     setTokenNo(tocken);
-  }, []);
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 767); // Adjust the width based on your mobile breakpoint
     };
@@ -46,7 +49,9 @@ function App() {
     <div>
       <BrowserRouter>
         <div className="d-flex  parent">
-          {tokenNo && <div>{!isMobile && <Sidebar />}</div>}
+          {tokenNo && (
+            <div>{!isMobile && <Sidebar AddDiviceFunc={AddDiviceFunc}  />}</div>
+          )}
 
           <div className="col rightSide h-80">
             {tokenNo && <Navbar />}
@@ -60,6 +65,7 @@ function App() {
               <Route path="/Location" element={<Location />}></Route>
               <Route path="/EnterNumber" element={<EnterNumber />}></Route>
             </Routes>
+            <div>{addDivicePopup && <AddDivices AddDiviceClose={AddDiviceClose} />}</div>
           </div>
         </div>
       </BrowserRouter>

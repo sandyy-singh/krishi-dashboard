@@ -2,7 +2,8 @@ import React from "react";
 import krishi_logo from "../../Images/krishi_logo.jpg";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-const Sidebar = () => {
+import "./Sidebar.scss"
+const Sidebar = ({AddDiviceFunc}) => {
   const navigate = useNavigate();
   const logout = () => {
     localStorage.removeItem("token");
@@ -10,6 +11,8 @@ const Sidebar = () => {
     window.location.reload();
     navigate("/login");
   };
+
+
 
   return (
     <div className="d-flex justify-content-between flex-column text-dark p-3 vh-100 position-sticky cardsiside ">
@@ -21,7 +24,7 @@ const Sidebar = () => {
           <img src={krishi_logo} alt="krishi_logo" width={"80px"} />
         </NavLink>
         <hr text-light />
-        <ul className="nav nav-pills  flex-column  ">
+        <ul className="nav   flex-column  ">
           <li className="nav-item ">
             <NavLink className="nav-link text-dark " to="/">
               DashBoard
@@ -37,6 +40,11 @@ const Sidebar = () => {
               CropSection
             </NavLink>
           </li>
+
+          <li>
+            <button className="add-divice" onClick={AddDiviceFunc}>Add Device</button>
+          </li>
+
           <li className="nav-item">
             <NavLink className="nav-link text-dark " to="/Contact">
               Contact Us
@@ -66,5 +74,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-

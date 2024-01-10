@@ -18,11 +18,7 @@ const Location = () => {
         data: [32, 20, 18, 32, 32, 20, 18, 32, 32, 20, 11, 9],
         backgroundColor: "rgba(158, 232, 86, 1)",
       },
-      // {
-      //     label: "2023 ",
-      //     data: [32, 20, 18, 32, 32, 20, 18, 32, 32, 20, 11, 9],
-      //     backgroundColor: "rgba(158, 232, 86, 1)",
-      // },
+
     ],
   };
 
@@ -81,17 +77,7 @@ const Location = () => {
       ],
     },
   };
-  // useEffect(() => {
-  //   const getDevices = async () => {
-  //     await setArray(Object.keys(devices));
-  //   };
-  //   getDevices();
-  // }, [devices]);
-  // const getDeviceDetails = (deviceName) => {
-  //   if (deviceName in devices) {
-  //     setLastUpdate(devices[deviceName][Object.keys(devices[deviceName])[0]]);
-  //   }
-  // };
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -99,33 +85,7 @@ const Location = () => {
           <h1 className="">Device Updates</h1>
         </div>
 
-        {/* <div className="col-6 mt-4">
-          <div className="dropdown">
-            <a
-              className="btn btn-secondary dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Devices
-            </a>
-            <ul className="dropdown-menu">
-              {array.map((value, i) => (
-               
-                <li key={i}>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                    onClick={() => getDeviceDetails(value)}
-                  >
-                    {value}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div> */}
+ 
 
         <div className="col-md-6 mt-4 mt-sm-5  ">
           <div className="row cards1  pt-2">
