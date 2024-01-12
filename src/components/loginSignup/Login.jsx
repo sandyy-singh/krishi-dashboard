@@ -1,10 +1,10 @@
-//react 
+//react
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
-
+import { useUserContext } from "./UserProvider";
 //context api
 // import { useUserContext } from "./UserProvider";
 
@@ -14,12 +14,13 @@ import "./Login.scss";
 //firebase
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { apppp } from "./firebase";
-
+import { getDatabase, push, ref, set, update } from "firebase/database";
+// import { getDatabase, ref, set } from "firebase/database";
 
 const Login = () => {
   const auth = getAuth(apppp);
   const navigate = useNavigate();
-
+  const { setUserId } = useUserContext();
   // data from context api
   // const { userId, setUserId } = useUserContext();
 
@@ -37,8 +38,7 @@ const Login = () => {
     if (localStorage.getItem("token")) {
       navigate("/");
     }
-  },[])
-
+  }, []);
 
   const togglePassword = () => {
     if (passwordType === "password") {
@@ -73,23 +73,29 @@ const Login = () => {
         console.log(response);
         const user = response.user;
         localStorage.setItem("token", user.accessToken);
+        setUserId(user.uid);
         localStorage.setItem("uid", user.uid);
         // setUserId(uid);
-      
       })
       .then((response) => {
         setShowAlert(true);
         localStorage.getItem("token");
-     const user_idd = localStorage.getItem("uid");
-     console.log("set user id",user_idd)
-   
+        const user_idd = localStorage.getItem("uid");
+        console.log("set user id", user_idd);
       })
       .then(() => {
-        setTimeout(() => {
-          navigate("/");
-          window.location.reload();
-          
-        }, 1000);
+        function writeUserData() {
+          console.log("setting data");
+          const db = getDatabase(apppp);
+          const user_idd = localStorage.getItem("uid");
+          update(ref(db, `Users_Devices/${user_idd}`), {
+            AE01: "192.5.6.7",
+            AE02: "192.43.55",
+          });
+          console.log("setting data done");
+        }
+        writeUserData();
+        navigate("/");
       })
       .catch((err) => {
         setError(true);

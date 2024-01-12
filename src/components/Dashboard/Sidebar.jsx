@@ -2,17 +2,15 @@ import React from "react";
 import krishi_logo from "../../Images/krishi_logo.jpg";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import "./Sidebar.scss"
-const Sidebar = ({AddDiviceFunc}) => {
+import "./Sidebar.scss";
+const Sidebar = ({ AddDiviceFunc }) => {
   const navigate = useNavigate();
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("uid");
-    window.location.reload();
+    // window.location.reload();
     navigate("/login");
   };
-
-
 
   return (
     <div className="d-flex justify-content-between flex-column text-dark p-3 vh-100 position-sticky cardsiside ">
@@ -40,10 +38,15 @@ const Sidebar = ({AddDiviceFunc}) => {
               CropSection
             </NavLink>
           </li>
-
-          <li>
-            <button className="add-divice" onClick={AddDiviceFunc}>Add Device</button>
+          <li className="nav-item" onClick={AddDiviceFunc}>
+            <button className="nav-link text-dark ">Add Device</button>
           </li>
+
+          {/* <li>
+            <button className="add-divice" onClick={AddDiviceFunc}>
+              Add Device
+            </button>
+          </li> */}
 
           <li className="nav-item">
             <NavLink className="nav-link text-dark " to="/Contact">

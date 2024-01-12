@@ -18,14 +18,12 @@ function App() {
   const [isMobile, setIsMobile] = useState(false);
   const [tokenNo, setTokenNo] = useState("");
 
-  
   const AddDiviceFunc = () => {
     setaddDivicePopup(true);
   };
   const AddDiviceClose = () => {
     setaddDivicePopup(false);
   };
-
 
   useEffect(() => {
     const tocken = localStorage.getItem("token");
@@ -50,7 +48,14 @@ function App() {
       <BrowserRouter>
         <div className="d-flex  parent">
           {tokenNo && (
-            <div>{!isMobile && <Sidebar AddDiviceFunc={AddDiviceFunc}  />}</div>
+            <div>
+              {!isMobile && (
+                <Sidebar
+                  AddDiviceFunc={AddDiviceFunc}
+                  setaddDivicePopup={setaddDivicePopup}
+                />
+              )}
+            </div>
           )}
 
           <div className="col rightSide h-80">
@@ -65,7 +70,9 @@ function App() {
               <Route path="/Location" element={<Location />}></Route>
               <Route path="/EnterNumber" element={<EnterNumber />}></Route>
             </Routes>
-            <div>{addDivicePopup && <AddDivices AddDiviceClose={AddDiviceClose} />}</div>
+            <div>
+              {addDivicePopup && <AddDivices AddDiviceClose={AddDiviceClose} />}
+            </div>
           </div>
         </div>
       </BrowserRouter>
