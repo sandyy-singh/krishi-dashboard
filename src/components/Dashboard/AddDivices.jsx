@@ -7,12 +7,14 @@ const AddDivices = ({ AddDiviceClose }) => {
       <div className="row">
         <div className=" col popup-boxx">
           <div className=" row popup-contentt">
-          <span className="  closed" onClick={AddDiviceClose}>              &times;
-          </span>
+            <span className="  closed" onClick={AddDiviceClose}>              &times;
+            </span>
+
             <div className="col-12">
-            <h2 className="fw-bolder text-dark" >Add Device</h2>
+
+              <h2 className="fw-bolder text-dark" >Add Device</h2>
             </div>
-           
+
 
             <form>
               <div class="form-row">
