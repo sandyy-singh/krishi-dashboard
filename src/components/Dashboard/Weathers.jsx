@@ -25,10 +25,10 @@ export default function Weathers() {
       hour24: true,
     });
   }
-  function timechanger(utcSeconds) {
-    var d = new Date(0);
-    d.setUTCSeconds(utcSeconds);
-  }
+  // function timechanger(utcSeconds) {
+  //   var d = new Date(0);
+  //   d.setUTCSeconds(utcSeconds);
+  // }
   return (
     <div className="container-fluid mb-4">
       <div className="row d-flex justify-content-center align-items-center">
@@ -50,7 +50,7 @@ export default function Weathers() {
           </div>
 
           <div className="tableData">
-            <table class="table">
+            <table className="table">
               <thead class="thead-light">
                 <tr>
                   <th scope="col">S. No</th>
@@ -61,20 +61,31 @@ export default function Weathers() {
                 </tr>
               </thead>
               <tbody>
-                {/* {console.log(array)}
-                {array?.map((item, index) => (
-                  <tr key={index}>
-                    <th scope="row">{index + 1}</th>
-                    <td>{item}</td>
-                    <td>
-                      {convertEpoch(
-                        devices[item][Object.keys(devices[item])[0]].DT
-                      )}
-                    </td>
-                    <td>{devices[item][Object.keys(devices[item])[0]].SM}</td>
-                    <td>{devices[item][Object.keys(devices[item])[0]].PH}</td>
-                  </tr>
-                ))} */}
+                {/* {console.log(array, devices)} */}
+
+                {/* {console.log("array", array)} */}
+                {array &&
+                  array?.map((item, index) => (
+                    <tr key={index}>
+                      <th scope="row">{index + 1}</th>
+                      <td>{item}</td>
+                      <td>
+                        {convertEpoch(
+                          // devices[item][Object.keys(devices[item])[0]].DT
+                          // console.log(item),
+                          // console.log(
+                          devices[item]?.[Object.keys(devices[item])[0]]?.DT
+                          // )
+                        )}
+                      </td>
+                      <td>
+                        {devices[item]?.[Object.keys(devices[item])[0]].SM}
+                      </td>
+                      <td>
+                        {devices[item]?.[Object.keys(devices[item])[0]].PH}
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>

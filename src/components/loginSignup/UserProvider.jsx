@@ -6,7 +6,7 @@ import { apppp } from "./firebase";
 
 const UserContext = createContext();
 export const UserProvider = ({ children }) => {
-  const [userId, setUserId] = useState("");
+  const [userId, setUserId] = useState(null);
   const [allData, setAllData] = useState([]);
   const [updateDataa, setUpdateDataa] = useState([]);
   const [farmerNumber, setFarmerNumber] = useState("");
@@ -33,34 +33,8 @@ export const UserProvider = ({ children }) => {
     iNet: "1",
   });
   useEffect(() => {
-    setUserId(localStorage.getItem("uid"));
-  }, []);
-  console.log("userid", userId);
-  useEffect(() => {
-    const userid = localStorage.getItem("uid");
-    console.log("userid", userid);
-    if (userid) {
-      get(child(ref(database), `Users_Devices/fsvIv6XcVmd9Um4LxPTPSAeNEWv2`))
-        .then((snapshot) => {
-          console.log(snapshot.val());
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-    // }
-  }, [database]);
-  useEffect(() => {
-    const getUserDevices = () => {
-      setArray(Object.keys(userDevices));
-    };
-    getUserDevices();
-  }, [devices]);
-  useEffect(() => {
-    // console.log("second");
     get(child(ref(database), "WiFi_Devices/"))
       .then((snapshot) => {
-        // setLastUpdate(snapshot.val());
         setDevices(snapshot.val());
       })
       .catch((error) => {

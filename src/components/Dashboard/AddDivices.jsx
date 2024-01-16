@@ -9,12 +9,13 @@ const AddDivices = ({ AddDiviceClose, setaddDivicePopup }) => {
   const db = getDatabase(apppp);
   const [deviceID, setDeviceID] = useState("");
   const [deviceName, setDeviceName] = useState("");
+  const userid = localStorage.getItem("uid");
   const handleAddDevice = async (e) => {
     if (!deviceID && !deviceName) {
       alert("Enter all fields");
     }
     try {
-      const userDevicesRef = ref(db, `Users_Devices/${userId}`);
+      const userDevicesRef = ref(db, `Users_Devices/${userid}`);
       console.log("adding data to firebase");
       console.log("devicename", deviceName);
       await update(userDevicesRef, {
@@ -23,9 +24,9 @@ const AddDivices = ({ AddDiviceClose, setaddDivicePopup }) => {
       console.log("data sent successfully");
       setUserDevices({
         ...userDevices,
-        [deviceID]: { deviceName: "192.168.6.9" },
+        [deviceName]: deviceID,
       });
-      setArray((prevArray) => [...prevArray, deviceName]);
+      setArray([...array], deviceName);
 
       AddDiviceClose();
     } catch (error) {
