@@ -1,7 +1,8 @@
-import { child, get, getDatabase, ref } from "firebase/database";
+import { child, get, getDatabase, ref, set, update } from "firebase/database";
 import { createContext, useContext, useEffect, useState } from "react";
 import React from "react";
 import { apppp } from "./firebase";
+// import { json } from "react-router-dom";
 
 const UserContext = createContext();
 export const UserProvider = ({ children }) => {
@@ -12,8 +13,13 @@ export const UserProvider = ({ children }) => {
   const [editData, setEditData] = useState([]);
   const [accessDataForEdit, setAccessDataForEdit] = useState({});
   const [devices, setDevices] = useState([]);
-  const [array, setArray] = useState([]);
-
+  const [array, setArray] = useState(["AE01"]);
+  const [userDevices, setUserDevices] = useState([]);
+  const database = getDatabase(apppp);
+  // const [userID, serUserID] = useState(null);
+  // const [dateAndTime, setDateAndTime] = useState();
+  // const [lastUpdate, setLastUpdate] = useState([]);
+  // console.log(array);
   const [lastUpdate, setLastUpdate] = useState({
     BT: "62",
     DT: "1686820318",
@@ -26,9 +32,32 @@ export const UserProvider = ({ children }) => {
     T: "25",
     iNet: "1",
   });
-
-  const database = getDatabase(apppp);
   useEffect(() => {
+    setUserId(localStorage.getItem("uid"));
+  }, []);
+  console.log("userid", userId);
+  useEffect(() => {
+    const userid = localStorage.getItem("uid");
+    console.log("userid", userid);
+    if (userid) {
+      get(child(ref(database), `Users_Devices/fsvIv6XcVmd9Um4LxPTPSAeNEWv2`))
+        .then((snapshot) => {
+          console.log(snapshot.val());
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+    // }
+  }, [database]);
+  useEffect(() => {
+    const getUserDevices = () => {
+      setArray(Object.keys(userDevices));
+    };
+    getUserDevices();
+  }, [devices]);
+  useEffect(() => {
+    // console.log("second");
     get(child(ref(database), "WiFi_Devices/"))
       .then((snapshot) => {
         // setLastUpdate(snapshot.val());
@@ -38,7 +67,9 @@ export const UserProvider = ({ children }) => {
         console.error(error);
       });
   }, [database]);
-  // console.log(devices);
+  //
+
+  // console.log("userdevices", userDevices);
   // console.log(array);
 
   // console.log(devices["AE01"][Object.keys(devices["AEO1"])[0]]);
@@ -64,6 +95,8 @@ export const UserProvider = ({ children }) => {
         setArray,
         lastUpdate,
         setLastUpdate,
+        userDevices,
+        setUserDevices,
       }}
     >
       {children}

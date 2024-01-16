@@ -35,12 +35,12 @@ export default function RecentUpdates() {
   // const obj = [];
   // const obj = Object.keys(devices);
   // console.log(obj);
-  useEffect(() => {
-    const getDevices = async () => {
-      await setArray(Object.keys(devices));
-    };
-    getDevices();
-  }, [devices]);
+  // useEffect(() => {
+  //   const getDevices = async () => {
+  //     await setArray(Object.keys(devices));
+  //   };
+  //   getDevices();
+  // }, [devices]);
   const getDeviceDetails = (deviceName) => {
     if (deviceName in devices) {
       setLastUpdate(devices[deviceName][Object.keys(devices[deviceName])[0]]);

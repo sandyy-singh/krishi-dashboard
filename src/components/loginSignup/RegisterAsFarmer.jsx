@@ -62,7 +62,7 @@ const RegisterAsFarmer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(userId)
+    console.log(userId);
     addDoc(collection(firestore, `Farmer_data/${userId}/Farmer_reg`), {
       fpoName,
       name,
@@ -488,44 +488,6 @@ const RegisterAsFarmer = () => {
               </div>
             )}
           </form>
-
-          {/*  
-          <div className="result">
-            {data.length < 1 && <>No data to show</>}
-            {data.length > 0 && (
-              <div className="table-responsive">
-                <table className="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Index</th>
-                      <th scope="col">FPO Name</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Phone No</th>
-                      <th scope="col">State</th>
-
-                      <th scope="col">District</th>
-                      <th scope="col">district</th>
-                      <th scope="col">Land Area</th>
-                      <th scope="col">crops Sowing</th>
-
-                      <th scope="col">cover Crops</th>
-                      <th scope="col">intercrops</th>
-                      <th scope="col">location</th>
-                      <th scope="col">objective</th>
-
-                      <th scope="col">nitrogenFixing</th>
-                      <th scope="col">villagePractices</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <Data data={data} />
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
-
-          */}
         </div>
       </div>
     </div>

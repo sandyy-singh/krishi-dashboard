@@ -6,13 +6,15 @@ import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { apppp } from "./firebase";
-
+import { useUserContext } from "./UserProvider";
 const auth = getAuth(apppp);
 const firestore = getFirestore(apppp);
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
+  // const { setUserID } = useUserContext();
+  // console.log(useUserContext());
   // const [state, setState] = useState("");
   // const [district, setDistrict] = useState("");
   // const [tehsil, setTehsile] = useState("");
@@ -96,7 +98,7 @@ const SignUp = () => {
         <div className="col-12 sibnUpParent ">
           <div className="row rowWidth  ">
             <div className="col-12 border rounded border-secondary  shadow   ">
-            <h3 className="text-center pt-2 ">Signup</h3>
+              <h3 className="text-center pt-2 ">Signup</h3>
               <form
                 autoComplete="off"
                 className="form-group"
@@ -136,9 +138,6 @@ const SignUp = () => {
                     />
                   </div>
                 </div>
-
-
-
 
                 <div className="row  d-flex justify-content-center align-items-center">
                   <div className="col-11 col-sm-9">

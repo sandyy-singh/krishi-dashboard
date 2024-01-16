@@ -38,20 +38,19 @@ const FarmerData1 = () => {
   const [isValidMobile, setIsValidMobile] = useState(true);
   const [isValidAdhar, setIsValidAdhar] = useState(true);
 
-
   const handleMobileNo = (e) => {
-      const inputMobile = e.target.value;
-      setEditPhoneNumber(inputMobile);
-      const mobilePattern = /^[0-9]{10}$/; 
-      setIsValidMobile(mobilePattern.test(inputMobile));
-    };
+    const inputMobile = e.target.value;
+    setEditPhoneNumber(inputMobile);
+    const mobilePattern = /^[0-9]{10}$/;
+    setIsValidMobile(mobilePattern.test(inputMobile));
+  };
 
-    const handleAdharNo = (e) => {
-      const inputAdhar = e.target.value;
-      setEditAadharPanCard(inputAdhar);
-      const adharPattern = /^[0-9]{12}$/;
-      setIsValidAdhar(adharPattern.test(inputAdhar));
-    };
+  const handleAdharNo = (e) => {
+    const inputAdhar = e.target.value;
+    setEditAadharPanCard(inputAdhar);
+    const adharPattern = /^[0-9]{12}$/;
+    setIsValidAdhar(adharPattern.test(inputAdhar));
+  };
 
   //access all data from fire store
   const collectionRef = collection(
@@ -118,7 +117,7 @@ const FarmerData1 = () => {
     setUpdateForm(true);
   };
 
-  const editAndSave =  () => {
+  const editAndSave = () => {
     if (!isValidMobile) {
       alert("Please enter valid 10-digit mobile number");
       setEditPhoneNumber("");
@@ -132,15 +131,14 @@ const FarmerData1 = () => {
 
       return;
     }
-    const updateData =  doc(
+    const updateData = doc(
       firestore,
       `FarmerOnBoardinng/${userId}/Farmer_reg`,
       id
     );
 
-
     try {
-      const snpshot =  updateDoc(updateData, {
+      const snpshot = updateDoc(updateData, {
         farmerName: editFarmerName,
         address: editAddress,
         phoneNumber: editPhoneNumber,
@@ -162,8 +160,7 @@ const FarmerData1 = () => {
       alert("something going wrong");
     }
     navigate("/");
-    window.location.reload();
-
+    // window.location.reload();
   };
 
   return (
