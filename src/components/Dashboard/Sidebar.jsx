@@ -8,7 +8,7 @@ const Sidebar = ({ AddDiviceFunc }) => {
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("uid");
-    // window.location.reload();
+    window.location.reload();
     navigate("/login");
   };
 
