@@ -11,16 +11,16 @@ export default function Dashboard() {
   const database = getDatabase(apppp);
   const { setUserDevices, userDevices, setArray } = useUserContext();
 
-  useEffect(() => {
-    get(child(ref(database), "Users_Devices/MBfl4iZAvfQHEYnNidj9Ag1WtUo2"))
-      .then((snapshot) => {
-        // setLastUpdate(snapshot.val());
-        setUserDevices(snapshot.val());
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [database]);
+  // useEffect(() => {
+  //   get(child(ref(database), "Users_Devices/MBfl4iZAvfQHEYnNidj9Ag1WtUo2"))
+  //     .then((snapshot) => {
+  //       // setLastUpdate(snapshot.val());
+  //       setUserDevices(snapshot.val());
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, [database]);
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -42,7 +42,7 @@ export default function Dashboard() {
     // }
   }, [database]);
   useEffect(() => {
-    console.log("userdevices", userDevices);
+    // console.log("userdevices", userDevices);
     const getUserDevices = () => {
       setArray(Object.keys(userDevices));
     };
@@ -53,6 +53,6 @@ export default function Dashboard() {
       <div className=" row d-flex justify-content-center align-items-center ">
         <MainContent />
       </div>
-    </div>
-  );
+    </div>
+  );
 }
