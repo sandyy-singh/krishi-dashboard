@@ -97,6 +97,7 @@ const Login = () => {
         }
         writeUserData();
         navigate("/");
+        window.location.reload();
       })
       .catch((err) => {
         setError(true);
