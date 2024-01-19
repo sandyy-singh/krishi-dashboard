@@ -15,6 +15,9 @@ export const UserProvider = ({ children }) => {
   const [devices, setDevices] = useState([]);
   const [array, setArray] = useState(["AE01"]);
   const [userDevices, setUserDevices] = useState([]);
+  const [DevicesLogs, setDevicesLogs] = useState(false);
+  
+
   const database = getDatabase(apppp);
   // const [userID, serUserID] = useState(null);
   // const [dateAndTime, setDateAndTime] = useState();
@@ -71,6 +74,8 @@ export const UserProvider = ({ children }) => {
         setLastUpdate,
         userDevices,
         setUserDevices,
+        DevicesLogs,
+        setDevicesLogs,
       }}
     >
       {children}

@@ -5,8 +5,17 @@ import button1 from "../../Images/Vector2.png";
 import button2 from "../../Images/Icon1.png";
 import { useUserContext } from "../loginSignup/UserProvider";
 
+import DeviceLog from "./DeviceLog";
+
+
 export default function Weathers() {
-  const { devices, array } = useUserContext();
+
+
+  const { devices, array, DevicesLogs, setDevicesLogs } = useUserContext();
+
+  const deviceLogPopUp = () => {
+    setDevicesLogs(true)
+  }
   function convertEpoch(value) {
     if (!value) {
       return "";
@@ -68,7 +77,7 @@ export default function Weathers() {
                   array?.map((item, index) => (
                     <tr key={index}>
                       <th scope="row">{index + 1}</th>
-                      <td>{item}</td>
+                      <td onClick={deviceLogPopUp}>{item}</td>
                       <td>
                         {convertEpoch(
                           // devices[item][Object.keys(devices[item])[0]].DT
@@ -90,10 +99,16 @@ export default function Weathers() {
             </table>
           </div>
         </div>
+
+
         <div className="col-lg-4 d-flex justify-content-center align-items-center">
           <Weatherpart1 />
         </div>
       </div>
+      <div >
+      {DevicesLogs && <DeviceLog />}
+
+    </div>
     </div>
   );
 }
