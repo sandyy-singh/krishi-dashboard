@@ -61,9 +61,6 @@ export default function Weathers() {
                 </tr>
               </thead>
               <tbody>
-                {/* {console.log(array, devices)} */}
-
-                {/* {console.log("array", array)} */}
                 {array &&
                   array?.map((item, index) => (
                     <tr key={index}>
@@ -72,7 +69,6 @@ export default function Weathers() {
                       <td>
                         {convertEpoch(
                           devices[item]?.[Object.keys(devices[item])[0]]?.DT
-                          // )
                         )}
                       </td>
                       <td>
