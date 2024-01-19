@@ -71,9 +71,6 @@ export default function Weathers() {
                       <td>{item}</td>
                       <td>
                         {convertEpoch(
-                          // devices[item][Object.keys(devices[item])[0]].DT
-                          // console.log(item),
-                          // console.log(
                           devices[item]?.[Object.keys(devices[item])[0]]?.DT
                           // )
                         )}

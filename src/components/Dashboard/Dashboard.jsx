@@ -10,18 +10,6 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const database = getDatabase(apppp);
   const { setUserDevices, userDevices, setArray } = useUserContext();
-
-  // useEffect(() => {
-  //   get(child(ref(database), "Users_Devices/MBfl4iZAvfQHEYnNidj9Ag1WtUo2"))
-  //     .then((snapshot) => {
-  //       // setLastUpdate(snapshot.val());
-  //       setUserDevices(snapshot.val());
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }, [database]);
-
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
