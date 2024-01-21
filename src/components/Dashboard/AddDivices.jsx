@@ -3,9 +3,11 @@ import "./AddDivices.scss";
 import { useUserContext } from "../loginSignup/UserProvider";
 import { apppp } from "../loginSignup/firebase";
 import { getDatabase, push, ref, set, update } from "firebase/database";
+
+
 const AddDivices = ({ AddDiviceClose, setaddDivicePopup }) => {
-  const { userId, setUserDevices, userDevices, setArray, array } =
-    useUserContext();
+
+  const { userId, setUserDevices, userDevices, setArray, array } = useUserContext();
   const db = getDatabase(apppp);
   const [deviceID, setDeviceID] = useState("");
   const [deviceName, setDeviceName] = useState("");

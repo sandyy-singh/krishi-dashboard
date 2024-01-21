@@ -1,4 +1,4 @@
-.popup-boxx {
+.log-popup-boxx {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,29 +10,35 @@
     background: rgba(0, 0, 0, 0.5);
   }
   
-  .popup-contentt {
+  .log-popup-contentt {
     background-color: #fefefe;
     padding: 20px;
     border-radius: 10px;
-    height:  55%;
-    width: 600px;
+    height:  65%;
+    width: 70%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+
     flex-direction: column;
    
   
   }
-  
-  .closed {
+  .deviceName{
+    display: flex;
+    justify-content: space-between;
+  }
+  .log-closed {
     color: #4b4949;
-    float: right;
-    font-size: 28px;
+    font-size: 38px;
     font-weight: bold;
     cursor: pointer;
-    text-align: end;
   }
-  .labelsName{
-    text-align: start;
-    color: #8f8d8d;
+  .log-table{
+    overflow: scroll !important;
+  }
+  .borderless-table tbody tr td {
+    border: none !important ;
+  }
+
+  .borderless-table thead tr td {
+    border: none !important ;
   }
