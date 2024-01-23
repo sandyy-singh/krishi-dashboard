@@ -16,7 +16,7 @@ export const UserProvider = ({ children }) => {
   const [array, setArray] = useState(["AE01"]);
   const [userDevices, setUserDevices] = useState([]);
   const [DevicesLogs, setDevicesLogs] = useState(false);
-  
+  const [deviceLogData, setDeviceLogData] = useState([]);
 
   const database = getDatabase(apppp);
   // const [userID, serUserID] = useState(null);
@@ -76,6 +76,8 @@ export const UserProvider = ({ children }) => {
         setUserDevices,
         DevicesLogs,
         setDevicesLogs,
+        deviceLogData,
+        setDeviceLogData,
       }}
     >
       {children}
@@ -84,5 +86,3 @@ export const UserProvider = ({ children }) => {
 };
 
 export const useUserContext = () => useContext(UserContext);
-     
-

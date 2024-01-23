@@ -1,27 +1,52 @@
-import React, { useState } from 'react'
-import "./DeviceLog.scss"
+import React, { useState } from "react";
+import "./DeviceLog.scss";
 import { useUserContext } from "../loginSignup/UserProvider";
 
-const DeviceLog = () => {
-  const { DevicesLogs, setDevicesLogs } = useUserContext();
-  const logclosedHandle =()=>{
-    setDevicesLogs(false)
+const DeviceLog = ({ activeDevice }) => {
+  const { DevicesLogs, setDevicesLogs, deviceLogData } = useUserContext();
+  // console.log("deviceLogData", deviceLogData);
+  // console.log("actice", activeDevice);
+  const logclosedHandle = () => {
+    setDevicesLogs(false);
+  };
+  function convertEpoch(value) {
+    if (!value) {
+      return "";
+    }
+    var time = new Date(0);
+    time.setUTCSeconds(value);
+    if (isNaN(time.valueOf())) {
+      return "";
+    }
+    return time.toLocaleString("en-US", {
+      month: "numeric",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour24: true,
+    });
   }
+
   return (
     <div className="container-fluid">
       <div className="row">
         <div className=" col log-popup-boxx">
-          <div className=" row log-popup-contentt">
-            <div className='deviceName'>
+          <div className=" row log-popup-contentt ">
+            <div className="col-12 deviceName">
               <div>
-                <h6>Device Name : AE01 </h6>
-                <span><b>Last Update :</b> 12:05 | 29.06.2023</span>
+                <h6>Device Name : {activeDevice} </h6>
+                <span>
+                  <b>Last Update :</b>{" "}
+                  {convertEpoch(Object?.keys(deviceLogData)[0])}
+                </span>
               </div>
-              <div className=" log-closed"onClick={logclosedHandle}  >&times;</div>
-
+              <div className=" log-closed" onClick={logclosedHandle}>
+                &times;
+              </div>
             </div>
-            <div className="col-12 log-table">
-              <table class="table borderless-table">
+            <div className="col-12 h-90 log-table">
+              <table class="table borderless-table text-center">
                 <thead>
                   <tr>
                     <th scope="col">Logs</th>
@@ -36,63 +61,30 @@ const DeviceLog = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>12:05 | 29.06.2023</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                  </tr>
-                  <tr>
-                    <td>12:05 | 29.06.2023</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                  </tr>
-                  <tr>
-                    <td>12:05 | 29.06.2023</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                  </tr>
-                  <tr>
-                    <td>12:05 | 29.06.2023</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                    <td>06</td>
-                  </tr>
+                  {/* {deviceLogData?.map((device, index) => ( */}
+                  {Object.keys(deviceLogData).map((device, index) => (
+                    <tr>
+                      <td>{convertEpoch(device)}</td>
+                      <td>{deviceLogData[device].BT}</td>
+                      <td>{deviceLogData[device].T}</td>
+                      <td>{deviceLogData[device].SM}</td>
+                      <td>{deviceLogData[device].H}</td>
+                      <td>{deviceLogData[device].ST}</td>
+                      <td>{deviceLogData[device].LI}</td>
+                      <td>{deviceLogData[device].PH}</td>
+                      <td>{deviceLogData[device].EC}</td>
+                    </tr>
+                  ))}
 
-
-
+                  {/* ))} */}
                 </tbody>
               </table>
             </div>
-
-
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DeviceLog
+export default DeviceLog;

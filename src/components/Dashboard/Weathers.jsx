@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Styles/Weather.scss";
 import Weatherpart1 from "./WeatherPart1";
 import button1 from "../../Images/Vector2.png";
@@ -7,15 +7,25 @@ import { useUserContext } from "../loginSignup/UserProvider";
 
 import DeviceLog from "./DeviceLog";
 
-
 export default function Weathers() {
-
-
-  const { devices, array, DevicesLogs, setDevicesLogs } = useUserContext();
-
-  const deviceLogPopUp = () => {
-    setDevicesLogs(true)
-  }
+  const {
+    devices,
+    array,
+    DevicesLogs,
+    setDevicesLogs,
+    deviceLogData,
+    setDeviceLogData,
+  } = useUserContext();
+  const [activeDevice, setActiveDevice] = useState(null);
+  const deviceLogPopUp = (deviceName) => {
+    setDevicesLogs(true);
+    setActiveDevice(deviceName);
+    if (deviceName in devices) {
+      setDeviceLogData(
+        devices[deviceName][Object.keys(devices[deviceName])[1]]
+      );
+    }
+  };
   function convertEpoch(value) {
     if (!value) {
       return "";
@@ -74,7 +84,7 @@ export default function Weathers() {
                   array?.map((item, index) => (
                     <tr key={index}>
                       <th scope="row">{index + 1}</th>
-                      <td onClick={deviceLogPopUp}>{item}</td>
+                      <td onClick={() => deviceLogPopUp(item)}>{item}</td>
                       <td>
                         {convertEpoch(
                           devices[item]?.[Object.keys(devices[item])[0]]?.DT
@@ -93,15 +103,11 @@ export default function Weathers() {
           </div>
         </div>
 
-
         <div className="col-lg-4 d-flex justify-content-center align-items-center">
           <Weatherpart1 />
         </div>
       </div>
-      <div >
-      {DevicesLogs && <DeviceLog />}
-
-    </div>
+      <div>{DevicesLogs && <DeviceLog activeDevice={activeDevice} />}</div>
     </div>
   );
 }
