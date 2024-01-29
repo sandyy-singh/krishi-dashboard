@@ -33,19 +33,24 @@ const DeviceLog = ({ activeDevice }) => {
       <div className="row">
         <div className=" col log-popup-boxx">
           <div className=" row log-popup-contentt ">
-            <div className="col-12 deviceName">
-              <div>
-                <h6>Device Name : {activeDevice} </h6>
-                <span>
-                  <b>Last Update :</b>{" "}
-                  {convertEpoch(Object?.keys(deviceLogData)[0])}
-                </span>
-              </div>
-              <div className=" log-closed" onClick={logclosedHandle}>
-                &times;
+
+            <div className="col">
+              <div className="row">
+                <div className="col-12 deviceName">
+                  <div>
+                    <h6>Device Name : {activeDevice} </h6>
+                    <span>
+                      <b>Last Update :</b>{" "}
+                      {convertEpoch(Object?.keys(deviceLogData)[0])}
+                    </span>
+                  </div>
+                  <div className=" log-closed" onClick={logclosedHandle}>
+                    &times;
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="col-12 h-90 log-table">
+            <div className=" h-90 log-table">
               <table class="table borderless-table text-center">
                 <thead>
                   <tr>
@@ -64,7 +69,7 @@ const DeviceLog = ({ activeDevice }) => {
                   {/* {deviceLogData?.map((device, index) => ( */}
                   {Object.keys(deviceLogData).map((device, index) => (
                     <tr>
-                      <td>{convertEpoch(device)}</td>
+                      <td className="device">{convertEpoch(device)}</td>
                       <td>{deviceLogData[device].BT}</td>
                       <td>{deviceLogData[device].T}</td>
                       <td>{deviceLogData[device].SM}</td>
@@ -82,6 +87,8 @@ const DeviceLog = ({ activeDevice }) => {
             </div>
           </div>
         </div>
+
+
       </div>
     </div>
   );

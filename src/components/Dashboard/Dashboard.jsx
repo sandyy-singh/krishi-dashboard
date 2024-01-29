@@ -37,8 +37,8 @@ export default function Dashboard() {
     getUserDevices();
   }, [userDevices]);
   return (
-    <div className="container-fluid containerClass overflow-hidden overflow-scroll ">
-      <div className=" row d-flex justify-content-center align-items-center ">
+    <div className=" containerClass overflow-hidden overflow-scroll ">
+      <div className=" d-flex justify-content-center align-items-center ">
         <MainContent />
       </div>
     </div>

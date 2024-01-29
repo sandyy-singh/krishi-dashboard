@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Styles/Location.scss";
 import Chart from "chart.js/auto";
 import { Bar, Line } from "react-chartjs-2";
@@ -7,6 +7,7 @@ import { CategoryScale } from "chart.js";
 Chart.register(CategoryScale);
 
 const Location = () => {
+  const [chartData , setChartData] =useState([32, 20, 18, 32, 32, 20, 18, 32, 32, 20, 11, 19]) 
   const { array, devices, setArray, lastUpdate, setLastUpdate } =
     useUserContext();
   // console.log(array);
@@ -15,7 +16,7 @@ const Location = () => {
     datasets: [
       {
         label: "2022 ",
-        data: [32, 20, 18, 32, 32, 20, 18, 32, 32, 20, 11, 9],
+        data: chartData,
         backgroundColor: "rgba(158, 232, 86, 1)",
       },
 
@@ -81,14 +82,11 @@ const Location = () => {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-12 mt-4">
+        <div className="col-12 mt-4 ">
           <h1 className="">Device Updates</h1>
         </div>
-
- 
-
-        <div className="col-md-6 mt-4 mt-sm-5  ">
-          <div className="row cards1  pt-2">
+        <div className="col-md-6 mt-4 mt-sm-5 ">
+          <div className="row   pt-2">
             <div className="col-5 col-sm-6">
               <h2 className="">Overview</h2>
             </div>
@@ -105,14 +103,14 @@ const Location = () => {
                 </div>
               </div>
             </div>
-            <div className="co-10 d-flex justify-content-center align-items-center w-80">
+            <div className="col-10 d-flex justify-content-center align-items-center w-80">
               <Bar data={data1} options={option1} />
             </div>
           </div>
         </div>
 
         <div className="col-md-6 mt-4 mt-sm-5  ">
-          <div className="row cards1 w-80  pt-2">
+          <div className="row  w-80  pt-2">
             <div className="col-5 col-sm-6 ">
               <h2 className="">Overview</h2>
             </div>
@@ -129,7 +127,7 @@ const Location = () => {
                 </div>
               </div>
             </div>
-            <div className="co-10 d-flex justify-content-center align-items-center chart">
+            <div className="col-10 d-flex justify-content-center align-items-center chart">
               <Bar data={data2} options={option2} />
             </div>
           </div>

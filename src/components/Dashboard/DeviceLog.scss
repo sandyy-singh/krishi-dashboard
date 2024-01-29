@@ -8,34 +8,49 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .log-popup-contentt {
   background-color: #fefefe;
   padding: 20px;
   border-radius: 10px;
-  height: 65%;
-  width: 70%;
-  display: flex;
-  flex-direction: column;
+  height: 65vh;
+  width: 75%;
+  overflow: scroll;
+
 }
+
 .deviceName {
   display: flex;
   justify-content: space-between;
 }
+
 .log-closed {
   color: #4b4949;
   font-size: 38px;
   font-weight: bold;
   cursor: pointer;
 }
+
 .log-table {
   overflow: scroll !important;
+  height: 100%;
+  width: 100%;
 }
+
+.borderless-table {
+  width: 100% !important;
+}
+
 .borderless-table tbody tr td {
-  border: none !important ;
+  border: none !important;
 }
 
 .borderless-table thead tr td {
-  border: none !important ;
+  border: none !important;
+}
+.device{
+  cursor: pointer;
 }

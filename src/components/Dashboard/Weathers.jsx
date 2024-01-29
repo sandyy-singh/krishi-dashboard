@@ -84,7 +84,7 @@ export default function Weathers() {
                   array?.map((item, index) => (
                     <tr key={index}>
                       <th scope="row">{index + 1}</th>
-                      <td onClick={() => deviceLogPopUp(item)}>{item}</td>
+                      <td className="device" onClick={() => deviceLogPopUp(item)}>{item}</td>
                       <td>
                         {convertEpoch(
                           devices[item]?.[Object.keys(devices[item])[0]]?.DT
