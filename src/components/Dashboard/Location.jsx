@@ -7,7 +7,7 @@ import { CategoryScale } from "chart.js";
 Chart.register(CategoryScale);
 
 const Location = () => {
-  const [chartData , setChartData] =useState([32, 20, 18, 32, 32, 20, 18, 32, 32, 20, 11, 19]) 
+  const [chartData, setChartData] = useState([32, 20, 18, 32, 32, 20, 18, 32, 32, 20, 11, 19])
   const { array, devices, setArray, lastUpdate, setLastUpdate } =
     useUserContext();
   // console.log(array);
@@ -85,7 +85,7 @@ const Location = () => {
         <div className="col-12 mt-4 ">
           <h1 className="">Device Updates</h1>
         </div>
-        <div className="col-md-6 mt-4 mt-sm-5 ">
+        <div className="col-md-6 mt-4 mt-sm-5 chart-cards1">
           <div className="row   pt-2">
             <div className="col-5 col-sm-6">
               <h2 className="">Overview</h2>
@@ -109,7 +109,7 @@ const Location = () => {
           </div>
         </div>
 
-        <div className="col-md-6 mt-4 mt-sm-5  ">
+        <div className="col-md-6 mt-4 mt-sm-5  chart-cards1">
           <div className="row  w-80  pt-2">
             <div className="col-5 col-sm-6 ">
               <h2 className="">Overview</h2>

@@ -59,7 +59,7 @@ const AddDivices = ({ AddDiviceClose, setaddDivicePopup }) => {
                     className="form-control"
                     placeholder="Device ID"
                     onChange={(e) => setDeviceID(e.target.value)}
-                    // required
+                  // required
                   />
                 </div>
                 <div className="col">
@@ -72,7 +72,7 @@ const AddDivices = ({ AddDiviceClose, setaddDivicePopup }) => {
                     className="form-control"
                     placeholder="Device Name"
                     onChange={(e) => setDeviceName(e.target.value)}
-                    // required
+                  // required
                   />
                 </div>
 
