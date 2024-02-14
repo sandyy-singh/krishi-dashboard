@@ -17,6 +17,9 @@ export const UserProvider = ({ children }) => {
   const [userDevices, setUserDevices] = useState([]);
   const [DevicesLogs, setDevicesLogs] = useState(false);
   const [deviceLogData, setDeviceLogData] = useState([]);
+  const [battry, setBattry] = useState({});
+  const [ecLog, setEcLog] = useState([62, 53, 43, 65, 44, 62, 53, 43, 65, 44, 62, 53, 43, 65, 44,]);
+
 
   const database = getDatabase(apppp);
   // const [userID, serUserID] = useState(null);
@@ -38,7 +41,9 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     get(child(ref(database), "WiFi_Devices/"))
       .then((snapshot) => {
+        console.log(snapshot)
         setDevices(snapshot.val());
+        console.log(snapshot.val())
       })
       .catch((error) => {
         console.error(error);
@@ -78,6 +83,10 @@ export const UserProvider = ({ children }) => {
         setDevicesLogs,
         deviceLogData,
         setDeviceLogData,
+        battry,
+        setBattry,
+        ecLog,
+        setEcLog
       }}
     >
       {children}

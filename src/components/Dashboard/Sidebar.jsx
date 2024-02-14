@@ -29,7 +29,7 @@ const Sidebar = ({ AddDiviceFunc }) => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link text-dark  " to="/Conta">
+            <NavLink className="nav-link text-dark  " to="/Contact">
               CropAdvisory
             </NavLink>
           </li>

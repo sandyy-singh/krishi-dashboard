@@ -70,7 +70,7 @@ export default function Weathers() {
 
           <div className="tableData">
             <table className="table">
-              <thead class="thead-light">
+              <thead className="thead-light">
                 <tr>
                   <th scope="col">S. No</th>
                   <th scope="col">Device names</th>

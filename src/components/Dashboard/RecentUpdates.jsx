@@ -15,7 +15,7 @@ import ec from "../../Images/image 7.png";
 import { useUserContext } from "../loginSignup/UserProvider";
 import { compileString } from "sass";
 export default function RecentUpdates() {
-  const { lastUpdate, array, setArray, devices, setLastUpdate } =
+  const { lastUpdate, array, setArray, devices, setLastUpdate, battry, setBattry, ecLog, setEcLog } =
     useUserContext();
   // const { devices, setDevices } = useUserContext();
   // console.log(devices);
@@ -34,18 +34,39 @@ export default function RecentUpdates() {
   // console.log("devices", devices);
   // const obj = [];
   // const obj = Object.keys(devices);
-  // console.log(obj);
+  // console.log(obj); 
   // useEffect(() => {
   //   const getDevices = async () => {
   //     await setArray(Object.keys(devices));
   //   };
   //   getDevices();
   // }, [devices]);
-  const getDeviceDetails = (deviceName) => {
+  const getDeviceDetails = async (deviceName) => {
     if (deviceName in devices) {
       setLastUpdate(devices[deviceName][Object.keys(devices[deviceName])[0]]);
+      setBattry(devices[deviceName][Object.keys(devices[deviceName])[1]])
     }
+    // console.log("battry", battry)
+    const entries = Object.entries(battry);
+    let ecArray = []
+    entries.map(([key, value], index) => {
+      // console.log("BT", key, value.BT)
+      let counter = 0;
+      if (counter < 12) {
+        ecArray.push(value.BT); // Pushing modified elements into newArray
+        counter++;
+      }
+    })
+    setEcLog(ecArray)
+
+    console.log("ecLog", ecLog)
   };
+
+
+
+
+
+
   function convertEpoch(value) {
     if (!value) {
       return "";
@@ -115,6 +136,7 @@ export default function RecentUpdates() {
           </div>
         </div>
         <div className="col-12">
+
           <div className="row d-flex justify-content-center align-items-center">
             <div className="col-sm-5 col-md-3 mt-sm-4 mt-3 ">
               <div className="row   d-flex flex-column justify-content-center align-items-center">

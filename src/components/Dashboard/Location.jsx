@@ -8,7 +8,7 @@ Chart.register(CategoryScale);
 
 const Location = () => {
   const [chartData, setChartData] = useState([32, 20, 18, 32, 32, 20, 18, 32, 32, 20, 11, 19])
-  const { array, devices, setArray, lastUpdate, setLastUpdate } =
+  const { array, devices, setArray, lastUpdate, setLastUpdate, ecLog, setEcLog } =
     useUserContext();
   // console.log(array);
   const data1 = {
@@ -16,7 +16,7 @@ const Location = () => {
     datasets: [
       {
         label: "2022 ",
-        data: chartData,
+        data: ecLog,
         backgroundColor: "rgba(158, 232, 86, 1)",
       },
 
@@ -33,16 +33,18 @@ const Location = () => {
       display: true,
       text: "bar chart",
     },
-    scales: {
-      y: [
-        {
-          ticks: {
-            min: 0,
-            max: 60,
-          },
-        },
-      ],
-    },
+    // scales: {
+    //   y: [
+
+    //     {
+
+    //       ticks: {
+    //         min: 0,
+    //         max: 60,
+    //       },
+    //     },
+    //   ],
+    // },
   };
 
   const data2 = {
@@ -50,7 +52,7 @@ const Location = () => {
     datasets: [
       {
         label: "2022 ",
-        data: [32, 20, 18, 32, 32, 20, 18, 32, 32, 20, 11, 8],
+        data: ["32", 20, 18, 32, 32, 20, 18, 32, 32, 20, 11, 8],
         backgroundColor: "rgba(158, 232, 86, 1)",
       },
     ],
@@ -67,21 +69,87 @@ const Location = () => {
       display: true,
       text: "bar chart",
     },
-    scales: {
-      y: [
-        {
-          ticks: {
-            min: 0,
-            max: 60,
-          },
-        },
-      ],
-    },
+    // scales: {
+    //   y:
+    //   {
+    //     ticks: {
+    //       min: 0,
+    //       max: 60,
+    //     },
+    //   },
+
+    // },
   };
 
   return (
     <div className="container-fluid">
       <div className="row">
+
+        <div className="col-md-6 pt-5 ">
+          <div className="graphname"><h5>Battery</h5></div>
+          <div className="box ">
+
+
+            <Bar data={data1} options={option1} />
+          </div>
+        </div>
+
+        <div className="col-md-6 pt-5 ">
+          <div className="graphname"><h5>Amb. Temperature</h5></div>
+          <div className="box ">
+
+            <Bar data={data1} options={option1} />
+          </div>
+        </div>
+
+        <div className="col-md-6 pt-5 ">
+          <div className="graphname"><h5>Soil moisture</h5></div>
+          <div className="box ">
+
+
+            <Bar data={data1} options={option1} />
+          </div>
+        </div>
+
+        <div className="col-md-6 pt-5  ">
+          <div className="graphname"><h5>Amb. Humidity</h5></div>
+          <div className="box">
+            <Bar data={data1} options={option1} />
+          </div>
+        </div>
+
+        <div className="col-md-6 pt-5 ">
+          <div className="graphname"><h5>Soil Temperature</h5></div>
+          <div className="box">
+            <Bar data={data1} options={option1} />
+          </div>
+        </div>
+
+        <div className="col-md-6 pt-5  ">
+          <div className="graphname"><h5>Light Intensity</h5></div>
+          <div className="box">
+            <Bar data={data1} options={option1} />
+          </div>
+        </div>
+
+        <div className="col-md-6 pt-5 ">
+          <div className="graphname"><h5>PH</h5></div>
+          <div className="box">
+            <Bar data={data1} options={option1} />
+          </div>
+        </div>
+
+        <div className="col-md-6 pt-5 ">
+          <div className="graphname"><h5>Ec</h5></div>
+          <div className="box">
+            <Bar data={data1} options={option1} />
+          </div>
+        </div>
+
+
+
+
+
         <div className="col-12 mt-4 ">
           <h1 className="">Device Updates</h1>
         </div>
@@ -128,7 +196,7 @@ const Location = () => {
               </div>
             </div>
             <div className="col-10 d-flex justify-content-center align-items-center chart">
-              <Bar data={data2} options={option2} />
+              <Line data={data2} options={option2} />
             </div>
           </div>
         </div>

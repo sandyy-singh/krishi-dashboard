@@ -4,7 +4,7 @@ import { useUserContext } from "../loginSignup/UserProvider";
 
 const DeviceLog = ({ activeDevice }) => {
   const { DevicesLogs, setDevicesLogs, deviceLogData } = useUserContext();
-  // console.log("deviceLogData", deviceLogData);
+  console.log("deviceLogData", deviceLogData);
   // console.log("actice", activeDevice);
   const logclosedHandle = () => {
     setDevicesLogs(false);

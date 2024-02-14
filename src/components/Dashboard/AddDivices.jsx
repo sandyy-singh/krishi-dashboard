@@ -50,7 +50,7 @@ const AddDivices = ({ AddDiviceClose, setaddDivicePopup }) => {
             <form onSubmit={(e) => e.preventDefault()}>
               <div className="form-row">
                 <div className="col">
-                  <label className="labelsName" for="DeviceID">
+                  <label className="labelsName" htmlFor="DeviceID">
                     Device ID
                   </label>
                   <input

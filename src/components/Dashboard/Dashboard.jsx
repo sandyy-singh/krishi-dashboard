@@ -17,9 +17,9 @@ export default function Dashboard() {
   }, []);
   useEffect(() => {
     const userid = localStorage.getItem("uid");
-    // console.log("userid", userid);
+    console.log("userid", userid);
     if (userid) {
-      get(child(ref(database), `Users_Devices/${userid}`))
+      get(child(ref(database), "Users_Devices/" + userid))
         .then((snapshot) => {
           setUserDevices(snapshot.val());
         })
@@ -30,7 +30,7 @@ export default function Dashboard() {
     // }
   }, [database]);
   useEffect(() => {
-    // console.log("userdevices", userDevices);
+    console.log("userdevices", userDevices);
     const getUserDevices = () => {
       setArray(Object.keys(userDevices));
     };
@@ -41,6 +41,6 @@ export default function Dashboard() {
       <div className=" d-flex justify-content-center align-items-center ">
         <MainContent />
       </div>
-    </div>
-  );
+    </div>
+  );
 }

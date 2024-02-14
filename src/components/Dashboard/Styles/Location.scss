@@ -106,3 +106,24 @@
   justify-content: center;
   align-items: center;
 }
+
+.box {
+  border-radius: 16px;
+  background: var(--White, #fff);
+  padding: 30px;
+
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // & :hover {
+  //   background: var(--White, #d5cfcf);
+  // }
+}
+
+.graphname {
+  margin-top: 15px;
+  margin-left: 15px;
+  font-weight: 600;
+}
