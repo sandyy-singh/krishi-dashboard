@@ -63,10 +63,6 @@ export default function RecentUpdates() {
   };
 
 
-
-
-
-
   function convertEpoch(value) {
     if (!value) {
       return "";
