@@ -8,7 +8,7 @@ Chart.register(CategoryScale);
 
 const Location = () => {
   const [chartData, setChartData] = useState([32, 20, 18, 32, 32, 20, 18, 32, 32, 20, 11, 19])
-  const { array, devices, setArray, lastUpdate, setLastUpdate, ecLog, setEcLog } =
+  const { array, setArray, lastUpdate, devices, setLastUpdate, battry, setBattry, ecLog, setEcLog } =
     useUserContext();
   // console.log(array);
   const data1 = {
@@ -81,9 +81,103 @@ const Location = () => {
     // },
   };
 
+  const getDeviceDetails = async (deviceName) => {
+    if (deviceName in devices) {
+      setLastUpdate(devices[deviceName][Object.keys(devices[deviceName])[0]]);
+      setBattry(devices[deviceName][Object.keys(devices[deviceName])[1]])
+    }
+    // console.log("battry", battry)
+    const entries = Object.entries(battry);
+    let ecArray = []
+    entries.map(([key, value], index) => {
+      // console.log("BT", key, value.BT)
+      let counter = 0;
+      if (counter < 12) {
+        ecArray.push(value.BT); // Pushing modified elements into newArray
+        counter++;
+      }
+    })
+    setEcLog(ecArray)
+
+    console.log("ecLog", ecLog)
+  };
+
+
+
+
+
+
+  function convertEpoch(value) {
+    if (!value) {
+      return "";
+    }
+    var time = new Date(0);
+    time.setUTCSeconds(value);
+    if (isNaN(time.valueOf())) {
+      return "";
+    }
+    return time.toLocaleString("en-US", {
+      month: "numeric",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour24: true,
+    });
+  }
+
   return (
-    <div className="container-fluid">
-      <div className="row">
+    <div className="container-fluid location_height">
+      <div className="row ">
+
+        <div className="col-6 d-flex align-items-center">
+          <h1>Recent Updates</h1>
+          <span className="ms-2 fw-bold">{convertEpoch(lastUpdate.DT)}</span>
+        </div>
+
+        <div className="col- 1 me-1">
+          <div className="dropdown">
+            <a
+              className="btn btn-secondary dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Devices
+            </a>
+
+            <ul className="dropdown-menu">
+              {array.map((value, i) => (
+                // {
+                //   console.log(value);
+                // }
+                <li key={i}>
+                  <a
+                    className="dropdown-item"
+                    href="#"
+                    onClick={() => getDeviceDetails(value)}
+                  >
+                    {value}
+                  </a>
+                </li>
+              ))}
+
+              {/* <li>
+          <a className="dropdown-item" href="#">
+            AE02
+          </a>
+        </li>
+        <li>
+          <a className="dropdown-item" href="#">
+            AE03
+          </a>
+        </li> */}
+            </ul>
+          </div>
+        </div>
+
+
 
         <div className="col-md-6 pt-5 ">
           <div className="graphname"><h5>Battery</h5></div>
@@ -150,7 +244,7 @@ const Location = () => {
 
 
 
-        <div className="col-12 mt-4 ">
+        {/* <div className="col-12 mt-4 ">
           <h1 className="">Device Updates</h1>
         </div>
         <div className="col-md-6 mt-4 mt-sm-5 chart-cards1">
@@ -199,7 +293,7 @@ const Location = () => {
               <Line data={data2} options={option2} />
             </div>
           </div>
-        </div>
+      </div> */}
       </div>
     </div>
   );

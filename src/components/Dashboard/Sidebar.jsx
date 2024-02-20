@@ -34,7 +34,7 @@ const Sidebar = ({ AddDiviceFunc }) => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link text-dark " to="/Location">
+            <NavLink className="nav-link text-dark " to="/Contact">
               CropSection
             </NavLink>
           </li>
@@ -54,8 +54,8 @@ const Sidebar = ({ AddDiviceFunc }) => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link text-dark  " to="/Login">
-              Login
+            <NavLink className="nav-link text-dark  " to="/Location">
+              View Graph
             </NavLink>
           </li>
         </ul>

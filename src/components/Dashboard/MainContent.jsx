@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import Location from "./Location"
+
+
 import RecentUpdates from "./RecentUpdates";
 import Weathers from "./Weathers"
+import GrphLocation from "./GrphLocation";
 
 
 export default function MainContent() {
@@ -11,7 +13,8 @@ export default function MainContent() {
     return (
         <div >
             <RecentUpdates />
-            <Location />
+            <GrphLocation />
+
             <Weathers />
         </div>
 

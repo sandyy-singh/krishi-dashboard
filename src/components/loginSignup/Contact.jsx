@@ -9,10 +9,10 @@ const Contact = () => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
     }
-  },[])
+  }, [])
   return (
     <div>
-     {  /*  <Navbar  name={userName} />    */}
+      {  /*  <Navbar  name={userName} />    */}
       <div className="contact"></div>
     </div>
   );
