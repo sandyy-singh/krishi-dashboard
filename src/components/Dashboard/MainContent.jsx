@@ -14,7 +14,6 @@ export default function MainContent() {
         <div >
             <RecentUpdates />
             <GrphLocation />
-
             <Weathers />
         </div>
 

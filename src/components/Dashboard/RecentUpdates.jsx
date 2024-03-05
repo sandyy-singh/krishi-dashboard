@@ -59,7 +59,7 @@ export default function RecentUpdates() {
     })
     setEcLog(ecArray)
 
-    console.log("ecLog", ecLog)
+    // console.log("ecLog", ecLog)
   };
 
 

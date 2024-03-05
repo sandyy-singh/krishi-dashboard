@@ -1,5 +1,5 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 // import Navbar from "./Navbar";
 import "./FarmerOnBoardinng.scss";
 // import { useUserContext } from "./UserProvider";
@@ -42,59 +42,59 @@ const FarmerOnBoardinng = () => {
     const handleMobileNo = (e) => {
         const inputMobile = e.target.value;
         setPhoneNumber(inputMobile);
-        const mobilePattern = /^[0-9]{10}$/; 
+        const mobilePattern = /^[0-9]{10}$/;
         setIsValidMobile(mobilePattern.test(inputMobile));
-      };
+    };
 
-      const handleAdharNo = (e) => {
+    const handleAdharNo = (e) => {
         const inputAdhar = e.target.value;
         setAadharPanCard(inputAdhar);
         const adharPattern = /^[0-9]{12}$/;
         setIsValidAdhar(adharPattern.test(inputAdhar));
-      };
+    };
 
-    
+
     useEffect(() => {
         if (!localStorage.getItem("token")) {
-          navigate("/login");
+            navigate("/login");
         }
         // console.log(userId)
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-          const useremail = user;
-          setUuserName(useremail.auth.currentUser.email);
-        
-
-        //   console.log(userId)
-        }
-      });
-      }, []);
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const useremail = user;
+                setUuserName(useremail.auth.currentUser.email);
 
 
+                //   console.log(userId)
+            }
+        });
+    }, []);
 
-   
- 
+
+
+
+
 
 
 
     const FarmerOnBoardinngSubmit = async (e) => {
-        
+
         e.preventDefault();
         console.log(userId)
 
         if (!isValidMobile) {
             alert("Please enter valid 10-digit mobile number");
             setPhoneNumber("");
-      
+
             return;
-          }
-          if (!isValidAdhar) {
+        }
+        if (!isValidAdhar) {
             alert("Please enter valid AadharNumber ");
-      
+
             setAadharPanCard("");
-      
+
             return;
-          }
+        }
         try {
             await addDoc(
                 collection(firestore, `FarmerOnBoardinng/${userId}/Farmer_reg`),
@@ -106,7 +106,7 @@ const FarmerOnBoardinng = () => {
                     thisSeason,
                     previousSeason,
                     aadharPanCard,
-                    isCropBeforeSowing, 
+                    isCropBeforeSowing,
                     isCoverCropping,
                     isIntercropping,
                     isBioFertilizers,
@@ -203,7 +203,7 @@ const FarmerOnBoardinng = () => {
 
                             <div className="row d-flex justify-content-center align-items-center ">
                                 <div className="col-11">
-                                    <label className="labels-1" htmlFor="address">   
+                                    <label className="labels-1" htmlFor="address">
                                         Address
                                     </label>
                                     <input
@@ -312,7 +312,7 @@ const FarmerOnBoardinng = () => {
                                             type="checkbox"
                                             checked={isCropBeforeSowing}
                                             value={isCropBeforeSowing}
-                                            
+
                                             id="flexCheckDefault1"
                                             onChange={(e) => setIsCropBeforeSowing(!isCropBeforeSowing)}
                                         />
@@ -331,9 +331,9 @@ const FarmerOnBoardinng = () => {
                                             id="flexCheckChecked2"
                                             checked={isCoverCropping}
                                             value={isCoverCropping}
-                                            
+
                                             onChange={(e) => setIsCoverCropping(!isCoverCropping)}
-                                        /> 
+                                        />
                                         <label
                                             className="form-check-label labels-1"
                                             htmlFor="flexCheckChecked2"
@@ -347,7 +347,7 @@ const FarmerOnBoardinng = () => {
                                             type="checkbox"
                                             checked={isIntercropping}
                                             value={isIntercropping}
-                                           
+
                                             id="flexCheckDefault3"
                                             onChange={(e) => setIsIntercropping(!isIntercropping)}
                                         />
@@ -364,10 +364,10 @@ const FarmerOnBoardinng = () => {
                                             type="checkbox"
                                             value={isBioFertilizers}
                                             checked={isBioFertilizers}
-                                           
-                                            
+
+
                                             id="flexCheckDefault4"
-                                          onChange={(e) => setIsBioFertilizers(!isBioFertilizers)}
+                                            onChange={(e) => setIsBioFertilizers(!isBioFertilizers)}
                                         />
                                         <label
                                             className="form-check-label labels-1"
@@ -382,7 +382,7 @@ const FarmerOnBoardinng = () => {
                                             type="checkbox"
                                             checked={isAgroforestry}
                                             value={isAgroforestry}
-                                            
+
                                             id="flexCheckDefault5"
                                             onChange={(e) => setIsAgroforestry(!isAgroforestry)}
                                         />

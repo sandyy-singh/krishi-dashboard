@@ -3,20 +3,18 @@
         @content;
     }
 }
-.contact{
+
+.contact {
     height: 100vh;
     width: 100%;
-    background: url("../../Images/bg1.jpeg") no-repeat 0 0;
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgb(161, 179, 179);
+
     @include mob {
         background: none;
         background-color: #739f65;
     }
 }
-
-
-
-

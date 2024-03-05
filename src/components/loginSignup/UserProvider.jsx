@@ -41,9 +41,11 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     get(child(ref(database), "WiFi_Devices/"))
       .then((snapshot) => {
-        console.log(snapshot)
+        console.log("snapshot", snapshot)
+        console.log("key", snapshot.key)
+        console.log("val", snapshot.val())
         setDevices(snapshot.val());
-        console.log(snapshot.val())
+        // console.log("checking", snapshot.val())
       })
       .catch((error) => {
         console.error(error);
@@ -53,7 +55,6 @@ export const UserProvider = ({ children }) => {
 
   // console.log("userdevices", userDevices);
   // console.log(array);
-
   // console.log(devices["AE01"][Object.keys(devices["AEO1"])[0]]);
   // console.log(devices);
   return (
@@ -93,5 +94,4 @@ export const UserProvider = ({ children }) => {
     </UserContext.Provider>
   );
 };
-
 export const useUserContext = () => useContext(UserContext);

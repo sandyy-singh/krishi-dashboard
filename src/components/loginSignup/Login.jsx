@@ -70,10 +70,10 @@ const Login = () => {
     }
     await signInWithEmailAndPassword(auth, email, password)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         const user = response.user;
         localStorage.setItem("token", user.accessToken);
-        console.log("uid", user.uid);
+        // console.log("uid", user.uid);
         setUserId(user.uid);
         localStorage.setItem("uid", user.uid);
         // setUserId(uid);
@@ -82,7 +82,7 @@ const Login = () => {
         setShowAlert(true);
         localStorage.getItem("token");
         const user_idd = localStorage.getItem("uid");
-        console.log("set user id", user_idd);
+        // console.log("set user id", user_idd);
       })
       .then(() => {
         function writeUserData() {
@@ -93,7 +93,7 @@ const Login = () => {
             AE01: "192.5.6.7",
             AE02: "192.43.55",
           });
-          console.log("setting data done");
+          // console.log("setting data done");
         }
         writeUserData();
         navigate("/");
