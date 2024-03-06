@@ -17,30 +17,7 @@ import { compileString } from "sass";
 export default function RecentUpdates() {
   const { lastUpdate, array, setArray, devices, setLastUpdate, battry, setBattry, ecLog, setEcLog } =
     useUserContext();
-  // const { devices, setDevices } = useUserContext();
-  // console.log(devices);
-  // console.log(array);
-  // const database = getDatabase(apppp);
-  // useEffect(() => {
-  //   get(child(ref(database), "WiFi_Devices/"))
-  //     .then((snapshot) => {
-  //       // setLastUpdate(snapshot.val());
-  //       setDevices(snapshot.val());
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }, [database]);
-  // console.log("devices", devices);
-  // const obj = [];
-  // const obj = Object.keys(devices);
-  // console.log(obj); 
-  // useEffect(() => {
-  //   const getDevices = async () => {
-  //     await setArray(Object.keys(devices));
-  //   };
-  //   getDevices();
-  // }, [devices]);
+
   const getDeviceDetails = async (deviceName) => {
     if (deviceName in devices) {
       setLastUpdate(devices[deviceName][Object.keys(devices[deviceName])[0]]);

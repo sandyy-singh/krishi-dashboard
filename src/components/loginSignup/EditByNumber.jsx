@@ -19,22 +19,7 @@ const EditByNumber = () => {
   const { farmerNumber, setFarmerNumber,accessDataForEdit, setAccessDataForEdit } = useUserContext();
   const navigate = useNavigate();
 
-    //   useEffect(() => {
-  //     const listdata = async () => {
-  //         let list =[];
-  //         try{
-  //             const dbVal = await getDocs(collectionRef);
-  //             dbVal.forEach((doc)=>{
-  //              list.push({id:doc.id, ...doc.data()})
-  //             })
-  //            console.log(list)
-  //         }catch(err){
-  //             console.log(err)
-  //         }
 
-  //     };
-  //     listdata();;
-  //   }, []);
 
   useEffect(() => {
 

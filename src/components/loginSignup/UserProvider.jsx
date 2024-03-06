@@ -43,7 +43,7 @@ export const UserProvider = ({ children }) => {
       .then((snapshot) => {
         console.log("snapshot", snapshot)
         console.log("key", snapshot.key)
-        console.log("val", snapshot.val())
+        console.log("val ", snapshot.val())
         setDevices(snapshot.val());
         // console.log("checking", snapshot.val())
       })
