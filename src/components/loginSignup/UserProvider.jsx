@@ -18,7 +18,7 @@ export const UserProvider = ({ children }) => {
   const [DevicesLogs, setDevicesLogs] = useState(false);
   const [deviceLogData, setDeviceLogData] = useState([]);
   const [battry, setBattry] = useState({});
-  const [ecLog, setEcLog] = useState([62, 53, 43, 65, 44, 62, 53, 43, 65, 44, 62, 53, 43, 65, 44,]);
+  const [btLog, setBtLog] = useState([62, 53, 43, 65, 44, 62, 53, 43, 65, 44, 62, 53, 43, 65, 44,]);
 
 
   const database = getDatabase(apppp);
@@ -38,12 +38,24 @@ export const UserProvider = ({ children }) => {
     T: "25",
     iNet: "1",
   });
+
+
+  const [addDivicePopup, setaddDivicePopup] = useState(false);
+
+  const AddDiviceFunc = () => {
+    setaddDivicePopup(true);
+    console.log("run")
+  };
+  const AddDiviceClose = () => {
+    setaddDivicePopup(false);
+  };
+
   useEffect(() => {
     get(child(ref(database), "WiFi_Devices/"))
       .then((snapshot) => {
-        console.log("snapshot", snapshot)
-        console.log("key", snapshot.key)
-        console.log("val ", snapshot.val())
+        // console.log("snapshot", snapshot)
+        // console.log("key", snapshot.key)
+        // console.log("val ", snapshot.val())
         setDevices(snapshot.val());
         // console.log("checking", snapshot.val())
       })
@@ -86,8 +98,10 @@ export const UserProvider = ({ children }) => {
         setDeviceLogData,
         battry,
         setBattry,
-        ecLog,
-        setEcLog
+        btLog,
+        setBtLog,
+        AddDiviceFunc,
+        AddDiviceClose
       }}
     >
       {children}

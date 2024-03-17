@@ -15,29 +15,60 @@ import ec from "../../Images/image 7.png";
 import { useUserContext } from "../loginSignup/UserProvider";
 import { compileString } from "sass";
 export default function RecentUpdates() {
-  const { lastUpdate, array, setArray, devices, setLastUpdate, battry, setBattry, ecLog, setEcLog } =
+  const { lastUpdate, array, setArray, devices, setLastUpdate, battry, setBattry, btLog, setBtLog } =
     useUserContext();
 
+  console.log("btLog", btLog)
+  let BtArray = []
+
+  const [entries, setEntries] = useState([]);
+
   const getDeviceDetails = async (deviceName) => {
+
     if (deviceName in devices) {
-      setLastUpdate(devices[deviceName][Object.keys(devices[deviceName])[0]]);
-      setBattry(devices[deviceName][Object.keys(devices[deviceName])[1]])
+      // console.log("devices", devices)
+      await setLastUpdate(devices[deviceName][Object.keys(devices[deviceName])[0]]);
+      // console.log("devices[deviceName]", devices[deviceName])
+      // console.log("devices2", devices[deviceName][Object.keys(devices[deviceName])[0]])
+      await setBattry(devices[deviceName][Object.keys(devices[deviceName])[1]])
+      setEntries(Object.entries(battry))
     }
     // console.log("battry", battry)
-    const entries = Object.entries(battry);
-    let ecArray = []
+
+    // console.log("entries", entries)
+
     entries.map(([key, value], index) => {
       // console.log("BT", key, value.BT)
       let counter = 0;
       if (counter < 12) {
-        ecArray.push(value.BT); // Pushing modified elements into newArray
+        BtArray.push(value.BT); // Pushing modified elements into newArray
         counter++;
       }
     })
-    setEcLog(ecArray)
-
-    // console.log("ecLog", ecLog)
+    await setBtLog(BtArray)
+    // console.log("ecLog", ecLog) 
   };
+
+
+
+
+
+
+  const AE01 = devices.AE01
+
+
+
+
+  // useEffect(() => {
+  //   getDeviceDetails(AE01)
+
+  // }, []);
+
+
+
+
+
+
 
 
   function convertEpoch(value) {

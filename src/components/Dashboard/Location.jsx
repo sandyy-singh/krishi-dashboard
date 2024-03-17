@@ -11,7 +11,7 @@ Chart.register(CategoryScale);
 const Location = () => {
   const database = getDatabase(apppp);
   const [chartData, setChartData] = useState([32, 20, 18, 32, 32, 20, 18, 32, 32, 20, 11, 19])
-  const { array, setArray, lastUpdate, devices, setLastUpdate, battry, setBattry, ecLog, setEcLog, setUserDevices, userDevices } =
+  const { array, setArray, lastUpdate, devices, setLastUpdate, battry, setBattry, btLog, setBtLog, setUserDevices, userDevices } =
     useUserContext();
   // console.log(array);
   useEffect(() => {
@@ -40,7 +40,7 @@ const Location = () => {
     datasets: [
       {
         label: "2022 ",
-        data: ecLog,
+        data: btLog,
         backgroundColor: "rgba(158, 232, 86, 1)",
       },
 
@@ -113,7 +113,7 @@ const Location = () => {
     // console.log("battry", battry)
     const entries = Object.entries(battry);
     let ecArray = []
-    entries.map(([key, value], index) => {
+    await entries.map(([key, value], index) => {
       // console.log("BT", key, value.BT)
       let counter = 0;
       if (counter < 12) {
@@ -121,8 +121,8 @@ const Location = () => {
         counter++;
       }
     })
-    setEcLog(ecArray);
-    console.log("ecLog", ecLog)
+    await setBtLog(ecArray);
+    console.log("btLog", btLog)
   };
 
   function convertEpoch(value) {

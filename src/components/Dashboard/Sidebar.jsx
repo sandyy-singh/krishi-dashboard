@@ -2,9 +2,31 @@ import React from "react";
 import krishi_logo from "../../Images/krishi_logo.jpg";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useState, } from "react";
 import "./Sidebar.scss";
 const Sidebar = ({ AddDiviceFunc }) => {
   const navigate = useNavigate();
+
+
+  const [activeListItem, setActiveListItem] = useState("Dashboard");
+
+  const handleListItemClick = async (listItemName) => {
+
+    setActiveListItem(listItemName);
+
+  };
+  const handleListItemClick2 = async (listItemName) => {
+    await AddDiviceFunc()
+    setActiveListItem(listItemName);
+
+  };
+
+
+  const isListItemActive = (listItemName) => {
+    return activeListItem === listItemName ? "orange" : "black";
+  };
+
+
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("uid");
@@ -23,38 +45,37 @@ const Sidebar = ({ AddDiviceFunc }) => {
         </NavLink>
         <hr text-light />
         <ul className="nav   flex-column  ">
-          <li className="nav-item ">
-            <NavLink className="nav-link text-dark " to="/">
+
+          <li className="nav-item " onClick={() => handleListItemClick("Dashboard")}>
+            <NavLink className="nav-link  " style={{ color: isListItemActive("Dashboard") }} to="/" >
               DashBoard
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink className="nav-link text-dark  " to="/Contact">
+
+          <li className="nav-item" onClick={() => handleListItemClick("CropAdvisory")}>
+            <NavLink className="nav-link " style={{ color: isListItemActive("CropAdvisory") }} to="/Contact" >
               CropAdvisory
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink className="nav-link text-dark " to="/Contact">
+
+          <li className="nav-item" onClick={() => handleListItemClick("CropSection")}>
+            <NavLink className="nav-link " style={{ color: isListItemActive("CropSection") }} to="/Contact" >
               CropSection
             </NavLink>
           </li>
-          <li className="nav-item" onClick={AddDiviceFunc}>
-            <button className="nav-link text-dark ">Add Device</button>
+
+          <li className="nav-item" onClick={() => handleListItemClick2("Add Device")}   >
+            <NavLink className="nav-link " style={{ color: isListItemActive("Add Device") }}>Add Device</NavLink>
           </li>
 
-          {/* <li>
-            <button className="add-divice" onClick={AddDiviceFunc}>
-              Add Device
-            </button>
-          </li> */}
 
-          <li className="nav-item">
-            <NavLink className="nav-link text-dark " to="/Contact">
+          <li className="nav-item" onClick={() => handleListItemClick("Contact Us")}>
+            <NavLink className="nav-link " style={{ color: isListItemActive("Contact Us") }} to="/Contact">
               Contact Us
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink className="nav-link text-dark  " to="/Location">
+          <li className="nav-item" onClick={() => handleListItemClick("View Graph")}>
+            <NavLink className="nav-link " style={{ color: isListItemActive("View Graph") }} to="/Location">
               View Graph
             </NavLink>
           </li>

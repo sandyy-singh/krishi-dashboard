@@ -9,7 +9,7 @@ Chart.register(CategoryScale);
 const GrphLocation = () => {
 
   const [chartData, setChartData] = useState([32, 20, 18, 32, 32, 20, 18, 32, 32, 20, 11, 19])
-  const { array, devices, setArray, lastUpdate, setLastUpdate, ecLog, setEcLog } =
+  const { array, devices, setArray, lastUpdate, setLastUpdate, btLog, setBtLog } =
     useUserContext();
   // console.log(array);
   const data1 = {
@@ -17,7 +17,7 @@ const GrphLocation = () => {
     datasets: [
       {
         label: "2022 ",
-        data: ecLog,
+        data: btLog,
         backgroundColor: "rgba(158, 232, 86, 1)",
       },
 
