@@ -106,7 +106,7 @@ const SignUp = () => {
       <div className=" row    ">
         <div className="col-12 sibnUpParent ">
           <div className="row rowWidth  ">
-            <div className="col-12 border rounded border-secondary  shadow   ">
+            <div className="col-12 border rounded border-secondary bg-light  shadow   ">
               <h3 className="text-center pt-2 ">Signup</h3>
               <form
                 autoComplete="off"
