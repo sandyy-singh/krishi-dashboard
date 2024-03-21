@@ -18,8 +18,8 @@ const AddDivices = ({ AddDiviceClose, setaddDivicePopup }) => {
     }
     try {
       const userDevicesRef = ref(db, `Users_Devices/${userid}`);
-      console.log("adding data to firebase");
-      console.log("devicename", deviceName);
+      // console.log("adding data to firebase");
+      // console.log("devicename", deviceName);
       await update(userDevicesRef, {
         [deviceName]: deviceID,
       });

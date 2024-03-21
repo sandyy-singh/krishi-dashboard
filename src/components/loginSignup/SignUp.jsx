@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./SignUp.scss";
-// import { AiOutlineUser } from "react-icons/ai";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -13,18 +13,24 @@ const firestore = getFirestore(apppp);
 const SignUp = () => {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
-  // const { setUserID } = useUserContext();
-  // console.log(useUserContext());
-  // const [state, setState] = useState("");
-  // const [district, setDistrict] = useState("");
-  // const [tehsil, setTehsile] = useState("");
-  // const [village, setVillage] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const [isValidMobile, setIsValidMobile] = useState(true);
   const [isValidEmail, setIsValidEmail] = useState(true);
+  const [passwordType, setPasswordType] = useState("password");
+
   const navigate = useNavigate();
+
+  const togglePassword = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+      return;
+    }
+    setPasswordType("password");
+  };
 
   const handleMobileChange = (e) => {
     const inputMobile = e.target.value;
@@ -42,6 +48,14 @@ const SignUp = () => {
 
   const SignUpSubmitHandler = async (e) => {
     e.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert("password is not matched")
+      setPassword("")
+      setConfirmPassword("")
+      return;
+    }
+
 
     if (!isValidMobile) {
       alert("Please enter a valid 10-digit mobile number");
@@ -61,6 +75,7 @@ const SignUp = () => {
         auth,
         email,
         password,
+        confirmPassword,
         location,
         phone
       ).then((response) => alert("your account is created"));
@@ -70,24 +85,18 @@ const SignUp = () => {
         alert("somethimg wrong,please try again");
         setName("");
         setLocation("");
-        // setState("");
-        // setDistrict("");
-        // setTehsile("");
-        // setVillage("");
         setPhone("");
         setEmail("");
         setPassword("");
+        setConfirmPassword("")
         return;
       }
     }
     setName("");
     setLocation("");
-    // setState("");
-    // setDistrict("");
-    // setTehsile("");
-    // setVillage("");
     setPhone("");
     setEmail("");
+    setConfirmPassword("")
     setPassword("");
     navigate("/Login");
   };
@@ -171,7 +180,7 @@ const SignUp = () => {
                     />
                   </div>
                 </div>
-                <div className="row  d-flex justify-content-center align-items-center">
+                {/*   <div className="row  d-flex justify-content-center align-items-center">
                   <div className="col-11 col-sm-9 ">
                     <label className="labels" htmlFor="Password">
                       Password
@@ -186,7 +195,79 @@ const SignUp = () => {
                       required
                     />
                   </div>
+                </div> */}
+
+                <div className="row  d-flex justify-content-center align-items-center">
+                  <div className="col-11 col-sm-9 ">
+                    <label htmlFor="password">Password</label>
+                    <div className="input-group ">
+                      <input
+                        type={passwordType}
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        name="password"
+                        className="form-control  form-input"
+                        placeholder="Password"
+                      />
+                      <div className="">
+                        <div
+                          className=" btn-outline-primary eyeBtn form-input"
+                          onClick={togglePassword}
+                        >
+                          {passwordType === "password" ? (
+                            <AiOutlineEyeInvisible />
+                          ) : (
+                            <AiOutlineEye />
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
+
+                <div className="row  d-flex justify-content-center align-items-center">
+                  <div className="col-11 col-sm-9 ">
+                    <label htmlFor="password">Confirm Password</label>
+                    <div className="input-group ">
+                      <input
+                        type={passwordType}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        value={confirmPassword}
+                        name="password"
+                        className="form-control  form-input"
+                        placeholder="Password"
+                      />
+                      <div className="">
+                        <div
+                          className=" btn-outline-primary eyeBtn form-input"
+                          onClick={togglePassword}
+                        >
+                          {passwordType === "password" ? (
+                            <AiOutlineEyeInvisible />
+                          ) : (
+                            <AiOutlineEye />
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <div className="row  d-flex justify-content-center align-items-center mt-2   ">
                   <div className="col-11 col-sm-9  submitSignUp  ">
                     <button type="submit" className="btn-primary ">

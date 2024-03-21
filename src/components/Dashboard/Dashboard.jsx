@@ -30,7 +30,7 @@ export default function Dashboard() {
     // }
   }, [database]);
   useEffect(() => {
-    console.log("userdevices", userDevices);
+    // console.log("userdevices", userDevices);
     const getUserDevices = () => {
       setArray(Object.keys(userDevices));
     };

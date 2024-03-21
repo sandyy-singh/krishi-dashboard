@@ -5,7 +5,15 @@ import { apppp } from "./firebase";
 // import { json } from "react-router-dom";
 
 const UserContext = createContext();
+
+
+
 export const UserProvider = ({ children }) => {
+
+
+
+
+
   const [userId, setUserId] = useState(null);
   const [allData, setAllData] = useState([]);
   const [updateDataa, setUpdateDataa] = useState([]);
@@ -19,8 +27,6 @@ export const UserProvider = ({ children }) => {
   const [deviceLogData, setDeviceLogData] = useState([]);
   const [battry, setBattry] = useState({});
   const [btLog, setBtLog] = useState([62, 53, 43, 65, 44, 62, 53, 43, 65, 44, 62, 53, 43, 65, 44,]);
-
-
   const database = getDatabase(apppp);
   // const [userID, serUserID] = useState(null);
   // const [dateAndTime, setDateAndTime] = useState();

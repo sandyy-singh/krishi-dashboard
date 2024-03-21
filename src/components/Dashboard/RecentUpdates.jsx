@@ -14,34 +14,35 @@ import ph from "../../Images/image 3.png";
 import ec from "../../Images/image 7.png";
 import { useUserContext } from "../loginSignup/UserProvider";
 import { compileString } from "sass";
+
 export default function RecentUpdates() {
   const { lastUpdate, array, setArray, devices, setLastUpdate, battry, setBattry, btLog, setBtLog } =
     useUserContext();
 
-  console.log("btLog", btLog)
+  // console.log("btLog", btLog)
   let BtArray = []
 
-  const [entries, setEntries] = useState([]);
+  const [entries1, setEntries1] = useState([]);
 
   const getDeviceDetails = async (deviceName) => {
-
+    console.log("deviceName", deviceName)
     if (deviceName in devices) {
-      // console.log("devices", devices)
+      console.log("devices", devices)
       await setLastUpdate(devices[deviceName][Object.keys(devices[deviceName])[0]]);
-      // console.log("devices[deviceName]", devices[deviceName])
-      // console.log("devices2", devices[deviceName][Object.keys(devices[deviceName])[0]])
+      console.log("devices[deviceName]", devices[deviceName])
+      console.log("devices2", devices[deviceName][Object.keys(devices[deviceName])[0]])
       await setBattry(devices[deviceName][Object.keys(devices[deviceName])[1]])
-      setEntries(Object.entries(battry))
+      setEntries1(Object.entries(battry))
     }
-    // console.log("battry", battry)
+    console.log("battry", battry)
 
-    // console.log("entries", entries)
+    console.log("entries", entries1)
 
-    entries.map(([key, value], index) => {
+    entries1.map(([key, value], index) => {
       // console.log("BT", key, value.BT)
       let counter = 0;
       if (counter < 12) {
-        BtArray.push(value.BT); // Pushing modified elements into newArray
+        BtArray.push(value.BT);
         counter++;
       }
     })
@@ -49,27 +50,12 @@ export default function RecentUpdates() {
     // console.log("ecLog", ecLog) 
   };
 
-
-
-
-
-
   const AE01 = devices.AE01
-
-
-
 
   // useEffect(() => {
   //   getDeviceDetails(AE01)
 
   // }, []);
-
-
-
-
-
-
-
 
   function convertEpoch(value) {
     if (!value) {

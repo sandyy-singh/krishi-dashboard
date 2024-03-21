@@ -14,9 +14,11 @@ const Location = () => {
   const { array, setArray, lastUpdate, devices, setLastUpdate, battry, setBattry, btLog, setBtLog, setUserDevices, userDevices } =
     useUserContext();
   // console.log(array);
+
+
   useEffect(() => {
     const userid = localStorage.getItem("uid");
-    console.log("userid", userid);
+    // console.log("userid", userid);
     if (userid) {
       get(child(ref(database), "Users_Devices/" + userid))
         .then((snapshot) => {
@@ -28,13 +30,17 @@ const Location = () => {
     }
     // }
   }, [database]);
+
+
   useEffect(() => {
-    console.log("userdevices", userDevices);
+    // console.log("userdevices", userDevices);
     const getUserDevices = () => {
       setArray(Object.keys(userDevices));
     };
     getUserDevices();
   }, [userDevices]);
+
+
   const data1 = {
     labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"],
     datasets: [
@@ -71,39 +77,9 @@ const Location = () => {
     // },
   };
 
-  const data2 = {
-    labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"],
-    datasets: [
-      {
-        label: "2022 ",
-        data: ["32", 20, 18, 32, 32, 20, 18, 32, 32, 20, 11, 8],
-        backgroundColor: "rgba(158, 232, 86, 1)",
-      },
-    ],
-  };
 
-  const option2 = {
-    responsive: true,
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
-    title: {
-      display: true,
-      text: "bar chart",
-    },
-    // scales: {
-    //   y:
-    //   {
-    //     ticks: {
-    //       min: 0,
-    //       max: 60,
-    //     },
-    //   },
 
-    // },
-  };
+
 
   const getDeviceDetails = async (deviceName) => {
     if (deviceName in devices) {
@@ -122,7 +98,7 @@ const Location = () => {
       }
     })
     await setBtLog(ecArray);
-    console.log("btLog", btLog)
+    // console.log("btLog", btLog)
   };
 
   function convertEpoch(value) {
@@ -248,12 +224,6 @@ const Location = () => {
             <Bar data={data1} options={option1} />
           </div>
         </div>
-
-
-
-
-
-
       </div>
     </div>
   );
