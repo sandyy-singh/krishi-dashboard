@@ -5,6 +5,7 @@ import ResetPassword from "./components/loginSignup/ResetPassword";
 import Contact from "./components/loginSignup/Contact";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Location from "./components/Dashboard/Location";
+import ViewLog from "./components/Dashboard/ViewLog";
 import FarmerData1 from "./components/loginSignup/FarmerData1";
 import AddDivices from "./components/Dashboard/AddDivices";
 import "./App.css";
@@ -68,6 +69,7 @@ function App() {
               <Route path="/Contact" element={<Contact />}></Route>
               <Route path="/FarmerData1" element={<FarmerData1 />}></Route>
               <Route path="/Location" element={<Location />}></Route>
+              <Route path="/ViewLog" element={<ViewLog />}></Route>
               <Route path="/EnterNumber" element={<EnterNumber />}></Route>
             </Routes>
             <div>

@@ -1,8 +1,8 @@
 import React from "react";
 import "./Styles/RecentUpdate.css";
-import { getDatabase, ref, child, get } from "firebase/database";
+
 import { useState, useEffect } from "react";
-import { apppp } from "../loginSignup/firebase";
+
 
 import battery from "../../Images/image 1.png";
 import temp from "../../Images/image 8.png";
@@ -13,49 +13,36 @@ import lightIn from "../../Images/image 2.png";
 import ph from "../../Images/image 3.png";
 import ec from "../../Images/image 7.png";
 import { useUserContext } from "../loginSignup/UserProvider";
-import { compileString } from "sass";
+
 
 export default function RecentUpdates() {
-  const { lastUpdate, array, setArray, devices, setLastUpdate, battry, setBattry, btLog, setBtLog } =
+  const { lastUpdate, array, devices, setLastUpdate, battry, setBattry, setBtLog } =
     useUserContext();
-
-  // console.log("btLog", btLog)
   let BtArray = []
-
   const [entries1, setEntries1] = useState([]);
+  const [deviceNamee, setDeviceNamee] = useState('AE01');
 
-  const getDeviceDetails = async (deviceName) => {
-    console.log("deviceName", deviceName)
+
+  const getDeviceDetails = async (deviceName = 'AE01') => {
+    setDeviceNamee(deviceName)
     if (deviceName in devices) {
-      console.log("devices", devices)
       await setLastUpdate(devices[deviceName][Object.keys(devices[deviceName])[0]]);
-      console.log("devices[deviceName]", devices[deviceName])
-      console.log("devices2", devices[deviceName][Object.keys(devices[deviceName])[0]])
       await setBattry(devices[deviceName][Object.keys(devices[deviceName])[1]])
       setEntries1(Object.entries(battry))
     }
-    console.log("battry", battry)
-
-    console.log("entries", entries1)
-
-    entries1.map(([key, value], index) => {
-      // console.log("BT", key, value.BT)
-      let counter = 0;
-      if (counter < 12) {
-        BtArray.push(value.BT);
-        counter++;
-      }
-    })
+    // entries1.map(([key, value], index) => {
+    //   let counter = 0;
+    //   if (counter < 12) {
+    //     BtArray.push(value.BT);
+    //     counter++;
+    //   }
+    // })
     await setBtLog(BtArray)
-    // console.log("ecLog", ecLog) 
   };
 
-  const AE01 = devices.AE01
-
-  // useEffect(() => {
-  //   getDeviceDetails(AE01)
-
-  // }, []);
+  useEffect(() => {
+    getDeviceDetails();
+  }, []);
 
   function convertEpoch(value) {
     if (!value) {
@@ -75,6 +62,8 @@ export default function RecentUpdates() {
       hour24: true,
     });
   }
+
+
   return (
     <div className="container-fluid  mt-3 ">
       <div className="row d-flex justify-content-center align-items-center">
@@ -87,23 +76,19 @@ export default function RecentUpdates() {
             <div className="dropdown">
               <a
                 className="btn btn-secondary dropdown-toggle"
-                href="#"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Devices
+                {deviceNamee}
               </a>
 
               <ul className="dropdown-menu">
                 {array.map((value, i) => (
-                  // {
-                  //   console.log(value);
-                  // }
+
                   <li key={i}>
                     <a
                       className="dropdown-item"
-                      href="#"
                       onClick={() => getDeviceDetails(value)}
                     >
                       {value}
@@ -111,22 +96,11 @@ export default function RecentUpdates() {
                   </li>
                 ))}
 
-                {/* <li>
-                <a className="dropdown-item" href="#">
-                  AE02
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  AE03
-                </a>
-              </li> */}
               </ul>
             </div>
           </div>
         </div>
         <div className="col-12">
-
           <div className="row d-flex justify-content-center align-items-center">
             <div className="col-sm-5 col-md-3 mt-sm-4 mt-3 ">
               <div className="row   d-flex flex-column justify-content-center align-items-center">

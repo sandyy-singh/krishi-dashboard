@@ -78,7 +78,6 @@ const ChartComponent = () => {
     <div className="DeviceUpdates">
       <div className="upper-head">
         <h1 className="main-head">Device Updates</h1>
-        {/*   <DropDownMenu />  */}
       </div>
       <div className="both-overview">
         <div className="tChart">

@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import RecentUpdates from "./RecentUpdates";
 import Weathers from "./Weathers"
-import GrphLocation from "./GrphLocation";
+// import GrphLocation from "./GrphLocation";
 
 
 export default function MainContent() {
@@ -13,7 +13,7 @@ export default function MainContent() {
     return (
         <div >
             <RecentUpdates />
-            <GrphLocation />
+            {/* <GrphLocation /> */}
             <Weathers />
         </div>
 

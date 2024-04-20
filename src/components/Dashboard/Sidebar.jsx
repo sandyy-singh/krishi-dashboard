@@ -43,7 +43,7 @@ const Sidebar = ({ AddDiviceFunc }) => {
         >
           <img src={krishi_logo} alt="krishi_logo" width={"80px"} />
         </NavLink>
-        <hr text-light />
+        <hr />
         <ul className="nav   flex-column  ">
 
           <li className="nav-item " onClick={() => handleListItemClick("Dashboard")}>
@@ -74,15 +74,27 @@ const Sidebar = ({ AddDiviceFunc }) => {
               Contact Us
             </NavLink>
           </li>
+
+          {/*
           <li className="nav-item" onClick={() => handleListItemClick("View Graph")}>
             <NavLink className="nav-link " style={{ color: isListItemActive("View Graph") }} to="/Location">
               View Graph
             </NavLink>
           </li>
+          */ }
+
+
+          <li className="nav-item" onClick={() => handleListItemClick("View Graph")}>
+            <NavLink className="nav-link " style={{ color: isListItemActive("View Graph") }} to="/ViewLog">
+              View Log
+            </NavLink>
+          </li>
+
+
         </ul>
       </div>
       <div>
-        <hr text-light />
+        <hr />
         <div className="n">
           <ul className="nav  ">
             <li className="nav-item">

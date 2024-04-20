@@ -4,8 +4,6 @@ import { useUserContext } from "../loginSignup/UserProvider";
 
 const DeviceLog = ({ activeDevice }) => {
   const { DevicesLogs, setDevicesLogs, deviceLogData } = useUserContext();
-  // console.log("deviceLogData", deviceLogData);
-  // console.log("actice", activeDevice);
   const logclosedHandle = () => {
     setDevicesLogs(false);
   };
@@ -51,7 +49,7 @@ const DeviceLog = ({ activeDevice }) => {
               </div>
             </div>
             <div className=" h-90 log-table">
-              <table class="table borderless-table text-center">
+              <table className="table borderless-table text-center">
                 <thead>
                   <tr>
                     <th scope="col">Logs</th>
@@ -66,7 +64,7 @@ const DeviceLog = ({ activeDevice }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {/* {deviceLogData?.map((device, index) => ( */}
+
                   {Object.keys(deviceLogData).map((device, index) => (
                     <tr>
                       <td className="device">{convertEpoch(device)}</td>
@@ -81,7 +79,6 @@ const DeviceLog = ({ activeDevice }) => {
                     </tr>
                   ))}
 
-                  {/* ))} */}
                 </tbody>
               </table>
             </div>
