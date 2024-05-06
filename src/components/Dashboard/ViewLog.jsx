@@ -73,7 +73,7 @@ const ViewLog = () => {
 
 
   return (
-    <div className="container-fluid location_height">
+    <div className="container location_height">
       <div className="row ">
 
         <div className="col-6 d-flex align-items-center">
@@ -111,42 +111,43 @@ const ViewLog = () => {
             </ul>
           </div>
         </div>
-        <div className="pt-3">
-          <div className="">
-            <table className="table  text-center">
-              <thead>
-                <tr>
-                  <th scope="col">Logs</th>
-                  <th scope="col">Battery</th>
-                  <th scope="col">Amb. Temperature</th>
-                  <th scope="col">Soil Moisture</th>
-                  <th scope="col">Amb. Humidity</th>
-                  <th scope="col">Soil Temperature</th>
-                  <th scope="col">Light Internsity</th>
-                  <th scope="col">ph</th>
-                  <th scope="col">Ec</th>
-                </tr>
-              </thead>
-              <tbody>
-                {Object.keys(deviceLogData)?.map((item, index) => (
+        <div className=" pt-3 log-table">
 
-                  <tr key={index}>
-                    <td>
-                      {convertEpoch(item)}
-                    </td>
-                    <td>{deviceLogData[item].BT}</td>
-                    <td>{deviceLogData[item].T}</td>
-                    <td>{deviceLogData[item].SM}</td>
-                    <td>{deviceLogData[item].H}</td>
-                    <td>{deviceLogData[item].ST}</td>
-                    <td>{deviceLogData[item].LI}</td>
-                    <td>{deviceLogData[item].PH}</td>
-                    <td>{deviceLogData[item].EC}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <table className="table  text-center">
+            <thead>
+              <tr>
+                <th scope="col">Logs</th>
+                <th scope="col">Battery</th>
+                <th scope="col">Amb. Temperature</th>
+                <th scope="col">Soil Moisture</th>
+                <th scope="col">Amb. Humidity</th>
+                <th scope="col">Soil Temperature</th>
+                <th scope="col">Light Internsity</th>
+                <th scope="col">ph</th>
+                <th scope="col">Ec</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.keys(deviceLogData)?.map((item, index) => (
+
+                <tr key={index}>
+                  <td>
+                    {convertEpoch(item)}
+                  </td>
+                  <td className={deviceLogData[item].BT < 10 ? 'red pt-3' : 'green pt-3'}>{deviceLogData[item].BT}</td>
+                  <td>{deviceLogData[item].T}</td>
+                  <td>{deviceLogData[item].SM}</td>
+                  <td>{deviceLogData[item].H}</td>
+                  <td>{deviceLogData[item].ST}</td>
+                  <td>{deviceLogData[item].LI}</td>
+                  <td>{deviceLogData[item].PH}</td>
+                  <td>{deviceLogData[item].EC}</td>
+                </tr>
+
+              ))}
+            </tbody>
+          </table>
+
         </div>
       </div>
     </div>

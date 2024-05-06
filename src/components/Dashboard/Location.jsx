@@ -143,9 +143,7 @@ const Location = () => {
 
             <ul className="dropdown-menu">
               {array.map((value, i) => (
-                // {
-                //   console.log(value);
-                // }
+
                 <li key={i}>
                   <a
                     className="dropdown-item"

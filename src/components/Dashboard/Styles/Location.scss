@@ -1,3 +1,66 @@
+@mixin pc0 {
+  @media (max-width:350px) {
+    @content;
+  }
+}
+
+
+@mixin pc1 {
+  @media (min-width:370px) {
+    @content;
+  }
+}
+
+@mixin pc11 {
+  @media (min-width:400px) {
+    @content;
+  }
+}
+
+@mixin pc2 {
+  @media (min-width:460px) {
+    @content;
+  }
+}
+
+@mixin pc3 {
+  @media (min-width:470px) {
+    @content;
+  }
+}
+
+@mixin pc4 {
+  @media (min-width:570px) {
+    @content;
+  }
+}
+
+
+@mixin pc5 {
+  @media (min-width:760px) {
+    @content;
+  }
+}
+
+@mixin pc6 {
+  @media (min-width:800px) {
+    @content;
+  }
+}
+
+@mixin pc7 {
+  @media (min-width:850px) {
+    @content;
+  }
+}
+
+@mixin pc8 {
+  @media (min-width:1060px) {
+    @content;
+  }
+}
+
+
 
 .chart-cards1 {
   height: auto;
@@ -40,6 +103,72 @@
 
 .location_height {
   height: 90vh;
-  overflow: scroll;
+  width: 100%;
+
+  @include pc0 {
+
+    width: 300px !important;
+  }
+
+
+  @include pc1 {
+
+    width: 320px !important;
+  }
+
+  @include pc11 {
+
+    width: 350px !important;
+  }
+
+  @include pc2 {
+
+    width: 390px !important;
+  }
+
+  @include pc3 {
+
+    width: 440px !important;
+  }
+
+  @include pc4 {
+
+    width: 620px !important;
+  }
+
+
+  @include pc5 {
+    width: 700px !important;
+
+  }
+
+  @include pc6 {
+
+    width: 720px !important;
+
+  }
+
+  @include pc7 {
+
+    width: 750px !important;
+
+  }
+
+  @include pc8 {
+
+    width: 95% !important;
+
+  }
+
+
+
+
+}
+
+.log-table {
+  overflow: scroll !important;
+
+
+
 
 }

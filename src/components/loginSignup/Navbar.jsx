@@ -35,10 +35,10 @@ const Navbar = ({ toggleFun }) => {
 
 
   return (
-    <div className="cards1">
-      <nav className="navbar navbar-expand-lg p-2 w-100" >
+    <div className="cards1 zzindex">
+      <nav className="navbar navbar-expand-lg p-2 bg-light w-100 zzindex " >
 
-        <Link className=" navbar-brand text-dark d-block " onClick={toggleFun}>
+        <Link className=" navbar-brand text-dark d-block zzindex" onClick={toggleFun}>
           <b>KRISHI</b>
         </Link>
 
@@ -54,7 +54,7 @@ const Navbar = ({ toggleFun }) => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse zzindex " id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link
@@ -63,6 +63,27 @@ const Navbar = ({ toggleFun }) => {
                 aria-current="page"
               >
                 Home
+              </Link>
+            </li>
+
+
+            <li className="nav-item">
+              <Link
+                to="/CropAd"
+                className="nav-link text-dark"
+                aria-current="page"
+              >
+                Crop Advisory
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link
+                to="/KnowledgeBase"
+                className="nav-link text-dark"
+                aria-current="page"
+              >
+                Knowledge Base
               </Link>
             </li>
 
@@ -75,6 +96,7 @@ const Navbar = ({ toggleFun }) => {
                 ContactUs
               </Link>
             </li>
+
 
           </ul>
           <form className="d-flex">

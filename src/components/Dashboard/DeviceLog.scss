@@ -34,11 +34,11 @@
   cursor: pointer;
 }
 
-.log-table {
-  overflow: scroll !important;
-  height: 100%;
-  width: 100%;
-}
+// .log-table {
+//   overflow: scroll !important;
+//   height: 100%;
+//   width: 100%;
+// }
 
 .borderless-table {
   width: 100% !important;
@@ -51,6 +51,15 @@
 .borderless-table thead tr td {
   border: none !important;
 }
-.device{
+
+.device {
   cursor: pointer;
+}
+
+.red {
+  color: red !important;
+}
+
+.green {
+  color: green !important;
 }

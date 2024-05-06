@@ -12,7 +12,11 @@ import "./App.css";
 import EnterNumber from "./components/loginSignup/EnterNumber";
 import Navbar from "./components/loginSignup/Navbar";
 import Sidebar from "./components/Dashboard/Sidebar";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CropAd from "./components/Dashboard/CropAd";
+import KnowledgeBase from "./components/Dashboard/KnowledgeBase";
+
 
 function App() {
   const [addDivicePopup, setaddDivicePopup] = useState(false);
@@ -71,6 +75,8 @@ function App() {
               <Route path="/Location" element={<Location />}></Route>
               <Route path="/ViewLog" element={<ViewLog />}></Route>
               <Route path="/EnterNumber" element={<EnterNumber />}></Route>
+              <Route path="/CropAd" element={<CropAd />}></Route>
+              <Route path="/KnowledgeBase" element={<KnowledgeBase />}></Route>
             </Routes>
             <div>
               {addDivicePopup && <AddDivices AddDiviceClose={AddDiviceClose} />}

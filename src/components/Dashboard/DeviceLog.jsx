@@ -68,8 +68,7 @@ const DeviceLog = ({ activeDevice }) => {
                   {Object.keys(deviceLogData).map((device, index) => (
                     <tr>
                       <td className="device">{convertEpoch(device)}</td>
-                      <td>{deviceLogData[device].BT}</td>
-                      <td>{deviceLogData[device].T}</td>
+                      <td className={deviceLogData[device].BT < 10 ? 'red pt-3' : 'green pt-3'}>{deviceLogData[device].BT}</td>
                       <td>{deviceLogData[device].SM}</td>
                       <td>{deviceLogData[device].H}</td>
                       <td>{deviceLogData[device].ST}</td>

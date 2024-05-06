@@ -70,16 +70,7 @@ const GrphLocation = () => {
       display: true,
       text: "bar chart",
     },
-    // scales: {
-    //   y:
-    //   {
-    //     ticks: {
-    //       min: 0,
-    //       max: 60,
-    //     },
-    //   },
-
-    // },
+    
   };
   return (
     <div className="container-fluid ">

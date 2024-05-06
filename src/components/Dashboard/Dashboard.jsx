@@ -17,20 +17,19 @@ export default function Dashboard() {
   }, []);
   useEffect(() => {
     const userid = localStorage.getItem("uid");
-    // console.log("userid", userid);
     if (userid) {
       get(child(ref(database), "Users_Devices/" + userid))
         .then((snapshot) => {
           setUserDevices(snapshot.val());
         })
         .catch((error) => {
-          // console.error(error);
+          console.error(error);
         });
     }
     // }
   }, [database]);
   useEffect(() => {
-    // console.log("userdevices", userDevices);
+
     const getUserDevices = () => {
       setArray(Object.keys(userDevices));
     };

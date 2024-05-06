@@ -53,14 +53,14 @@ const Sidebar = ({ AddDiviceFunc }) => {
           </li>
 
           <li className="nav-item" onClick={() => handleListItemClick("CropAdvisory")}>
-            <NavLink className="nav-link " style={{ color: isListItemActive("CropAdvisory") }} to="/Contact" >
-              CropAdvisory
+            <NavLink className="nav-link " style={{ color: isListItemActive("CropAdvisory") }} to="/CropAd" >
+              Crop Advisory
             </NavLink>
           </li>
 
           <li className="nav-item" onClick={() => handleListItemClick("CropSection")}>
-            <NavLink className="nav-link " style={{ color: isListItemActive("CropSection") }} to="/Contact" >
-              CropSection
+            <NavLink className="nav-link " style={{ color: isListItemActive("CropSection") }} to="/KnowledgeBase" >
+              Knowledge Base
             </NavLink>
           </li>
 

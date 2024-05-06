@@ -7,33 +7,49 @@ import { getDatabase, push, ref, set, update } from "firebase/database";
 
 const AddDivices = ({ AddDiviceClose, setaddDivicePopup }) => {
 
-  const { userId, setUserDevices, userDevices, setArray, array } = useUserContext();
+  const { userId, setUserDevices, userDevices, setArray, array, devices,
+    setDevices, } = useUserContext();
   const db = getDatabase(apppp);
   const [deviceID, setDeviceID] = useState("");
   const [deviceName, setDeviceName] = useState("");
   const userid = localStorage.getItem("uid");
+
+
   const handleAddDevice = async (e) => {
+
     if (!deviceID && !deviceName) {
       alert("Enter all fields");
     }
-    try {
-      const userDevicesRef = ref(db, `Users_Devices/${userid}`);
-      // console.log("adding data to firebase");
-      // console.log("devicename", deviceName);
-      await update(userDevicesRef, {
-        [deviceName]: deviceID,
-      });
-      console.log("data sent successfully");
-      setUserDevices({
-        ...userDevices,
-        [deviceName]: deviceID,
-      });
-      setArray([...array], deviceName);
 
-      AddDiviceClose();
-    } catch (error) {
-      console.error("Error", error);
+    if (deviceID in devices) {
+
+      try {
+        const userDevicesRef = ref(db, `Users_Devices/${userid}`);
+
+        await update(userDevicesRef, {
+          [deviceName]: deviceID,
+        });
+        console.log("data sent successfully");
+        setUserDevices({
+          ...userDevices,
+          [deviceName]: deviceID,
+        });
+        setArray([...array], deviceName);
+
+        AddDiviceClose();
+      } catch (error) {
+        console.error("Error", error);
+      }
+
+    } else {
+      alert("enter valid deavice Name")
+      setDeviceID("")
+      setDeviceName("")
     }
+
+
+
+
   };
   return (
     <div className="container-fluid">
@@ -59,6 +75,7 @@ const AddDivices = ({ AddDiviceClose, setaddDivicePopup }) => {
                     className="form-control"
                     placeholder="Device ID"
                     onChange={(e) => setDeviceID(e.target.value)}
+                    value={deviceID}
                   // required
                   />
                 </div>
@@ -72,6 +89,7 @@ const AddDivices = ({ AddDiviceClose, setaddDivicePopup }) => {
                     className="form-control"
                     placeholder="Device Name"
                     onChange={(e) => setDeviceName(e.target.value)}
+                    value={deviceName}
                   // required
                   />
                 </div>

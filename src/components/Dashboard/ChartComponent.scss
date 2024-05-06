@@ -12,19 +12,18 @@
     width: 100%;
 
     .chart1 {
-        // position: absolute;
+
         margin-left: 50px;
         height: 300px;
         width: 700px;
         background-color: #FFF;
         border-radius: 15px;
-        // background-color: black;
+
     }
 
     >.upper-head {
         display: flex;
         flex-direction: row;
-        // justify-content: space-between;
         gap: 1280px;
         margin-top: 25px;
         margin-left: 40px;
@@ -45,8 +44,6 @@
         padding: 20px;
 
         >.tChart {
-            // margin-top: 100px;
-            // margin-bottom: 100px;
             width: 813px;
             height: 480px;
             padding: 15px;
@@ -64,8 +61,6 @@
                     display: flex;
                     flex-direction: row;
                     border-radius: 7px;
-                    // border: 1px solid rgba(0, 0, 0, 0.10);
-                    // background: #EDEDED;
                     display: inline-flex;
                     padding: 2px 2px;
                     justify-content: center;
