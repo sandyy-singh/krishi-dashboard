@@ -38,7 +38,7 @@ const DeviceLog = ({ activeDevice }) => {
                   <div>
                     <h6>Device Name : {activeDevice} </h6>
                     <span>
-                      <b>Last Update :</b>{" "}
+                      <b>Last Update :</b>
                       {convertEpoch(Object?.keys(deviceLogData)[0])}
                     </span>
                   </div>

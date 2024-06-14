@@ -13,7 +13,7 @@ const Contact = () => {
   return (
     <div>
       {  /*  <Navbar  name={userName} />    */}
-      <div className="contact"></div>
+      <div ></div>
     </div>
   );
 };
