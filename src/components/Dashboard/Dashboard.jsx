@@ -29,7 +29,7 @@ export default function Dashboard() {
     // }
   }, [database]);
   useEffect(() => {
-   
+
     const getUserDevices = () => {
       setArray(Object.keys(userDevices));
     };
